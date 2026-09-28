@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <InteractionDef>
+    <defName>Blues_InviteHangout</defName>
+    <label>invited to relax</label>
+    <workerClass>InteractionWorker</workerClass>
+    <symbol>blues/Hangout</symbol>
+    <initiatorThought>Blues_SharedJoy_Thought</initiatorThought>
+    <recipientThought>Blues_SharedJoy_Thought</recipientThought>
+	<ignoreTimeSinceLastInteraction>true</ignoreTimeSinceLastInteraction>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] invited [RECIPIENT_nameDef] to hang out and relax.</li>
+        <li>r_logentry->[INITIATOR_nameDef] suggested taking a break with [RECIPIENT_nameDef].</li>
+        <li>r_logentry->[INITIATOR_nameDef] shared some quality downtime with [RECIPIENT_nameDef].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+  <InteractionDef>
+    <defName>Blues_GroupHangout</defName>
+    <label>organized gathering</label>
+    <workerClass>InteractionWorker</workerClass>
+    <symbol>blues/Hangout</symbol>
+    <initiatorThought>Blues_SharedJoy_Thought</initiatorThought>
+    <recipientThought>Blues_SharedJoy_Thought</recipientThought>
+	<ignoreTimeSinceLastInteraction>true</ignoreTimeSinceLastInteraction>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] rallied [RECIPIENT_nameDef] for a group hangout.</li>
+        <li>r_logentry->[INITIATOR_nameDef] got [RECIPIENT_nameDef] and the crew together to chill.</li>
+        <li>r_logentry->[INITIATOR_nameDef] organized a shared break with [RECIPIENT_nameDef].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+  <InteractionDef>
+    <defName>Blues_SweepOffFeet</defName>
+    <label>swept off feet</label>
+    <workerClass>InteractionWorker</workerClass>
+    <symbol>Things/Mote/Heart</symbol>
+	<initiatorThought>Blues_RomanticJoy_Initiator</initiatorThought>
+    <recipientThought>Blues_RomanticJoy_Recipient</recipientThought>
+	<ignoreTimeSinceLastInteraction>true</ignoreTimeSinceLastInteraction>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] swept [RECIPIENT_nameDef] off [RECIPIENT_possessive] feet.</li>
+        <li>r_logentry->[INITIATOR_nameDef] whisked [RECIPIENT_nameDef] away for some romantic downtime.</li>
+        <li>r_logentry->[INITIATOR_nameDef] lovingly carried [RECIPIENT_nameDef] off to relax.</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+  
+</Defs>

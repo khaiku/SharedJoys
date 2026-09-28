@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<BluesJoyMain>Blues' Shared Joys</BluesJoyMain>
+	
+	<BluesEnableMenus>Enable float menus for manual invites</BluesEnableMenus>
+
+	<BluesEnableAuto>Enable autonomous events</BluesEnableAuto>
+	<BluesEnableAutoDesc>Let colonists organise group hangouts and sweep their lovers off their feet on their own.</BluesEnableAutoDesc>
+
+	<BluesAlreadySatisfied>{0} is already entertained.</BluesAlreadySatisfied>
+	<BluesNotEnoughLove>{0} and {1} aren't quite feeling it.</BluesNotEnoughLove>
+	<BluesNotEnoughFren>{0} and {1} are not that close.</BluesNotEnoughFren>
+	<BluesNoJoySpot>Not a fun place to hang out with.</BluesNoJoySpot>
+	<BluesNoRoomForJoy>Not enough space for everyone to chill.</BluesNoRoomForJoy>
+	<BluesCantReach>{0} can't reach to {1}.</BluesCantReach>
+	
+	<BluesRelaxAt>Relax at {0}</BluesRelaxAt>
+	<BluesInviteTo>Invite {0} to hang out at...</BluesInviteTo>
+	<BluesCarryLoverTo>Sweep {0} off {1} feet to...</BluesCarryLoverTo>
+	
+	<BluesJoyDrainTo>Sync recreation levels down to: {0}%</BluesJoyDrainTo>
+	<BluesDontDrain>Don't drain recreation needs</BluesDontDrain>
+	<BluesJoyDrainToDesc>Before a shared event, recreation is lowered to this value so colonists stay together longer before getting bored.\nRecreation already below this is left alone. </BluesJoyDrainToDesc>
+
+	<BluesMaxRecToTrigger>Max recreation level to allow manual invites: {0}%</BluesMaxRecToTrigger>
+	<BluesMaxRecToTriggerDesc>Colonists above this recreation level turn down manual invites.</BluesMaxRecToTriggerDesc>
+	<BluesMaxRecAutoTrigger>Max recreation level to allow auto events: {0}%</BluesMaxRecAutoTrigger>
+	<BluesMaxRecAutoTriggerDesc>Colonists above this recreation level are left out of autonomous events.\nOnly applies while recreation draining is off.</BluesMaxRecAutoTriggerDesc>
+
+	<BluesNeedFren>Minimum Friendship for invitations: {0}</BluesNeedFren>
+	<BluesNeedFrenDesc>Both colonists must like each other at least this much before one can invite the other. Applies to manual invites and autonomous events.</BluesNeedFrenDesc>
+	<BluesNeedLove>Minimum Romance to "Sweep off feet": {0}</BluesNeedLove>
+	<BluesNeedLoveDesc>Both lovers must like each other at least this much before one can carry the other. Applies to manual orders and autonomous carries.</BluesNeedLoveDesc>
+
+	<BluesLoverCarryPlay>Lovers sweep each other off to hangouts: {0}%</BluesLoverCarryPlay>
+	<BluesLoverCarryPlayOff>Lovers sweep each other off to hangouts: off</BluesLoverCarryPlayOff>
+	<BluesLoverCarryBed>Lovers sweep each other off to bed: {0}%</BluesLoverCarryBed>
+	<BluesLoverCarryBedOff>Lovers sweep each other off to bed: off</BluesLoverCarryBedOff>
+	<BluesLoverCarryPlayDesc>The chance a colonist carry their lover to hang out instead of walking.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other.</BluesLoverCarryPlayDesc>
+	<BluesLoverCarryBedDesc>When a colonist heads to a bed they share with their lover, this is the chance they turn around, fetch the lover and carry them to bed too. Rolled once per bedtime, per colonist.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other. Never fires while the lover is on work hours, already in bed, or the colony is in danger.</BluesLoverCarryBedDesc>
+	
+	<BluesScheduleJoy>Auto-trigger group events during 'Recreation' hours</BluesScheduleJoy>
+	<BluesScheduleJoyDesc>Colonists whose schedule says Recreation can start or join autonomous group events.</BluesScheduleJoyDesc>
+	<BluesScheduleAll>Auto-trigger group events during 'Anything' hours</BluesScheduleAll>
+	<BluesScheduleAllDesc>Colonists whose schedule says Anything can start or join autonomous group events, interrupting ordinary work.\nEmergencies, player orders, rituals and caravans won't be interrupted.</BluesScheduleAllDesc>
+
+	<BluesGroupJoysPerDay>Target daily group events: {0}</BluesGroupJoysPerDay>
+	<BluesGroupJoysPerDayDesc>How many autonomous group events the colony aims for per day, spread across the allowed hours below.</BluesGroupJoysPerDayDesc>
+	<BluesActiveHours>Allowed hours for autonomous group events:</BluesActiveHours>
+	<BluesActiveHoursDesc>Left-click an hour to allow group events in it, right-click to forbid.\nBedtime carries just follow sleep time.</BluesActiveHoursDesc>
+
+	<BluesRequireProximity>Maximum tile range for invitations: {0}</BluesRequireProximity>
+	<BluesRequireProximityDesc>How far apart two colonists can be and still invite each other, unless they're already in the same room.</BluesRequireProximityDesc>
+	<BluesInfiniteRange>Maximum tile range for invitations: Unlimited</BluesInfiniteRange>
+	<BluesNoRange>No invitations unless in the same indoor room</BluesNoRange>
+
+	<BluesRoomPickiness>Pickiness about where to hang out: {0}%</BluesRoomPickiness>
+	<BluesRoomPickinessOff>Pickiness about where to hang out: off</BluesRoomPickinessOff>
+	<BluesRoomPickinessDesc>How much the room matters when choosing where to hang out.\n0%: any usable spot at random. Higher: favours rec rooms, impressive rooms and the outdoors in nice weather, and shies away from bedrooms and hospitals.\nPrisons will never be used.</BluesRoomPickinessDesc>
+
+	<BluesRespectAreas>Respect allowed areas</BluesRespectAreas>
+	<BluesRespectAreasDesc>Autonomous group events won't send a colonist to a spot outside their allowed area.\nManual invites will ignore this.</BluesRespectAreasDesc>
+
+</LanguageData>

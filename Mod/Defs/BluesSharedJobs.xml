@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- casualInterruptible off so vanilla social interactions and joy seeking leave a carry alone
+       (otherwise the carrier gets distracted mid-carry and drops their lover on the floor). -->
+  <JobDef>
+    <defName>BluesCarryLoverToBed</defName>
+    <driverClass>Blues.JobDriver_CarrynLove</driverClass>
+    <reportString>carrying TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
+    <defName>BluesCarryLoverToPlay</defName>
+    <driverClass>Blues.JobDriver_CarrynChill</driverClass>
+    <reportString>carrying TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+  
+</Defs>
