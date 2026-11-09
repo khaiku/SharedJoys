@@ -26,7 +26,7 @@ remaining:
   - "2026-11-09: defect: French DefInjected missing for the Blues defs and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: 7af1af6c0153644a77d687acce91d29bbe4e5ce2
+protocols_read_sha: 01ba2e9cfe0b307ec9f0aef7d1edfd39f2458666
 updated: 2026-11-09
 ---
 
