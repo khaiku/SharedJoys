@@ -36,15 +36,33 @@ namespace Blues
             return (Job)tryGivePlayJob.Invoke(worker, new object[] { pawn, b });
         }
 
-        // Vanilla's capacity is the participant cap on the building itself.
+        // Vanilla's capacity is the participant cap on the building itself. Only reservations made
+        // by this very recreation count: a hauler fetching an item left on the table, a builder
+        // repairing it or a cleaner each used to make the building look full, which blocked the
+        // shared break with "not enough space".
         public static int FreeParticipantSlots(Building b, JoyGiverDef giver)
         {
             int reserved = 0;
             foreach (ReservationManager.Reservation r in b.Map.reservationManager.ReservationsReadOnly)
             {
-                if (r.Target.Thing == b) reserved++;
+                if (r.Target.Thing != b) continue;
+                if (r.Job == null || r.Job.def != giver.jobDef) continue;
+                reserved++;
             }
             return giver.jobDef.joyMaxParticipants - reserved;
+        }
+
+        // canInteractWith and tryGivePlayJob are private vanilla methods looked up by name. If a
+        // RimWorld version renames them, HasOwnWorker quietly returns false and chess, poker and
+        // instruments fall back to the watch-a-building path. Make that visible in the log.
+        public static void ReportReflectionHealth()
+        {
+            if (canInteractWith != null && tryGivePlayJob != null) return;
+            Log.Warning("[Shared Joys] could not find JoyGiver_InteractBuilding."
+                + (canInteractWith == null ? " CanInteractWith" : "")
+                + (tryGivePlayJob == null ? " TryGivePlayJob" : "")
+                + ": those are private vanilla methods and this RimWorld version seems to have renamed them. "
+                + "Chess, poker, billiards and instruments fall back to the watch-building path.");
         }
     }
 
@@ -82,7 +100,10 @@ namespace Blues
         {
             JoyGiverDef joyGiver = GetJoyGiverFor(b.def);
             CompGatherSpot spot = b.TryGetComp<CompGatherSpot>();
-            if (joyGiver == null && (spot == null || !spot.Active)) return false;
+            // Art, graves and meditation foci have no JoyGiverDef naming their ThingDef: their vanilla
+            // givers find a target by thing group or by comp. ExtendedBuildingJoy knows them.
+            bool extended = JoyousSet.extendBuildings && ExtendedBuildingJoy.KindOf(b) != ExtJoyKind.None;
+            if (joyGiver == null && (spot == null || !spot.Active) && !extended) return false;
 
             // Manual invites are free. Mile high club in the toilet is the player's business.
             if (manual) return true;
@@ -181,6 +202,17 @@ namespace Blues
         // One entry point for "a joy job at this building for this pawn", whatever the building is.
         private static Job MakeJoyJob(Pawn pawn, Building b, List<LocalTargetInfo> takenSpots)
         {
+            Job job = MakeGiverJob(pawn, b, takenSpots);
+            if (job == null && JoyousSet.extendBuildings) job = ExtendedBuildingJoy.TryMakeJob(pawn, b, takenSpots);
+            // Boards vanilla refuses for want of a chair are played on the ground instead.
+            if (job == null) job = GroundSeating.TryMake(pawn, b, takenSpots);
+            // Say why it failed, so Notify can replace the generic "not enough space".
+            if (job == null) FailureDiagnosis.Note(pawn, b);
+            return job;
+        }
+
+        private static Job MakeGiverJob(Pawn pawn, Building b, List<LocalTargetInfo> takenSpots)
+        {
             JoyGiverDef joyGiver = GetJoyGiverFor(b.def);
             if (joyGiver != null && joyGiver.jobDef != null)
             {
@@ -204,7 +236,7 @@ namespace Blues
         }
 
         // The log entry, the mutual memory and the speech bubble: everything that says "this happened".
-        private static void RecordSharedJoy(InteractionDef interaction, Pawn initiator, Pawn recipient)
+        public static void RecordSharedJoy(InteractionDef interaction, Pawn initiator, Pawn recipient)
         {
             Find.PlayLog.Add(new PlayLogEntry_Interaction(interaction, initiator, recipient, null));
 
@@ -262,15 +294,16 @@ namespace Blues
             return false;
         }
 
+        // A seat is what the game says is sittable. A defName containing "bench" or "seat" used to
+        // count too, which only added false positives: HandTailoringBench, ElectricTailoringBench,
+        // SimpleResearchBench and HiTechResearchBench in vanilla. Furniture a pawn can really sit on
+        // carries isSittable, or CanReserveSittableOrSpot would refuse it anyway.
         private static bool IsValidChair(Building chair, Pawn pawn)
         {
-            if (chair == null) return false;
-
-            bool isActuallySittable = chair.def.building.isSittable ||
-                                      chair.def.defName.ToLower().Contains("bench") ||
-                                      chair.def.defName.ToLower().Contains("seat");
-
-            return isActuallySittable && pawn.CanReserveAndReach(chair, PathEndMode.OnCell, Danger.None);
+            return chair != null
+                   && chair.def.building != null
+                   && chair.def.building.isSittable
+                   && pawn.CanReserveAndReach(chair, PathEndMode.Touch, Danger.Some);
         }
 
         public static bool IsOnHangoutCooldown(Pawn p)
@@ -387,7 +420,13 @@ namespace Blues
         }
 
 
-        public static void Notify(string text, LookTargets look = null) => Messages.Message(text, look ?? LookTargets.Invalid, MessageTypeDefOf.RejectInput);
+        // Only ever called on manual paths, so a failed autonomous event stays silent. When the
+        // placement failure was diagnosed on this tick, its real reason replaces the generic text.
+        public static void Notify(string text, LookTargets look = null)
+        {
+            FailureDiagnosis.TryTakeOver(ref text);
+            Messages.Message(text, look ?? LookTargets.Invalid, MessageTypeDefOf.RejectInput);
+        }
 
 
         public static bool IsValidInviteTarget(Pawn inviter, Pawn target)
@@ -537,6 +576,13 @@ namespace Blues
         // How many more pawns this building can take. 'probe' is the pawn whose eyes we borrow
         // to confirm the building is usable at all (a TV facing a wall has 8 slots and no cells).
         public static int GetAvailableSpots(Building b, Pawn probe)
+        {
+            int spots = GetGiverSpots(b, probe);
+            if (spots <= 0 && JoyousSet.extendBuildings) spots = ExtendedBuildingJoy.CountSpots(b, probe);
+            return spots;
+        }
+
+        private static int GetGiverSpots(Building b, Pawn probe)
         {
             Map map = b.Map;
             JoyGiverDef joyGiver = GetJoyGiverFor(b.def);

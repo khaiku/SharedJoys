@@ -17,6 +17,11 @@ namespace Blues
         public static InteractionDef Blues_SweepOffFeet;
         public static InteractionDef Blues_GroupHangout;
 
+        // Two base game JobDefs that RimWorld.JobDefOf does not expose: their vanilla givers reach
+        // them through def.jobDef, never by name.
+        public static JobDef ViewArt;
+        public static JobDef VisitGrave;
+
         static PgbDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(PgbDefOf));
@@ -51,6 +56,24 @@ namespace Blues
 
         public static int settingsVersion = 0;
 
+        // Art pieces, graves and meditation foci as recreation spots (see ExtendedBuildingJoy).
+        public static bool extendBuildings = true;
+
+        // "Invite ... to an activity" for recreation with no building to click (see PlacelessActivities).
+        public static bool enableActivityMenu = true;
+        public static List<string> disabledActivities = new List<string>();
+
+        public static bool IsActivityDisabled(JoyGiverDef d) => disabledActivities.Contains(d.defName);
+
+        public static void SetActivityDisabled(JoyGiverDef d, bool disabled)
+        {
+            if (disabled)
+            {
+                if (!disabledActivities.Contains(d.defName)) disabledActivities.Add(d.defName);
+            }
+            else disabledActivities.Remove(d.defName);
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -79,6 +102,11 @@ namespace Blues
             {
                 hourlyToggles = Enumerable.Repeat(true, 24).ToList();
             }
+
+            Scribe_Values.Look(ref extendBuildings, "extendBuildings", true);
+            Scribe_Values.Look(ref enableActivityMenu, "enableActivityMenu", true);
+            Scribe_Collections.Look(ref disabledActivities, "disabledActivities", LookMode.Value);
+            if (disabledActivities == null) disabledActivities = new List<string>();
 
             Scribe_Values.Look(ref settingsVersion, "settingsVersion", 0);
 
@@ -109,7 +137,16 @@ namespace Blues
 
     public class BluesJoys : Mod
     {
-        public BluesJoys(ModContentPack mod) : base(mod) => GetSettings<JoyousSet>();
+        public BluesJoys(ModContentPack mod) : base(mod)
+        {
+            GetSettings<JoyousSet>();
+            JoyJobFactory.ReportReflectionHealth();
+        }
+
+        private Vector2 scroll;
+
+        // Content height of the settings window, taller than most screens' window: it scrolls.
+        private const float SettingsHeight = 820f;
 
         public override string SettingsCategory() { return "BluesJoyMain".Translate(); }
 
@@ -150,8 +187,10 @@ namespace Blues
         public override void DoSettingsWindowContents(Rect rect)
         {
             base.DoSettingsWindowContents(rect);
+            Rect viewRect = new Rect(0f, 0f, rect.width - 20f, SettingsHeight);
+            Widgets.BeginScrollView(rect, ref scroll, viewRect);
             Listing_Standard listing = new Listing_Standard();
-            listing.Begin(rect);
+            listing.Begin(viewRect);
             listing.Gap(12f);
 
             // --- Row 1: Menus | Drain ---
@@ -171,6 +210,17 @@ namespace Blues
             SplitRow(listing, 60f, out left, out right);
             LabeledSlider(left, "BluesNeedFren".Translate(JoyousSet.NeedFren), "BluesNeedFrenDesc", ref JoyousSet.needFriendship, 0, 20);
             LabeledSlider(right, "BluesNeedLove".Translate(JoyousSet.NeedLove), "BluesNeedLoveDesc", ref JoyousSet.loverNeedLove, 0, 20);
+            listing.Gap(12f);
+
+            // --- Extensions: more places and activities to share ---
+            Rect extendRow = listing.GetRect(30f).ContractedBy(4f);
+            LabeledCheckbox(extendRow, "BluesExtendBuildings", "BluesExtendBuildingsDesc", ref JoyousSet.extendBuildings);
+            listing.Gap(6f);
+
+            SplitRow(listing, 30f, out left, out right);
+            LabeledCheckbox(left, "BluesEnableActivityMenu", "BluesEnableActivityMenuDesc", ref JoyousSet.enableActivityMenu);
+            if (JoyousSet.enableActivityMenu && Widgets.ButtonText(right, "BluesChooseActivities".Translate()))
+                Find.WindowStack.Add(new Dialog_ChooseActivities());
             listing.Gap(12f);
 
             // --- Master switch for everything colonists do on their own ---
@@ -246,6 +296,46 @@ namespace Blues
                 LabeledSlider(right, carryBed, "BluesLoverCarryBedDesc", ref JoyousSet.loverCarryToBed, 0, 10);
             }
             listing.End();
+            Widgets.EndScrollView();
+        }
+    }
+
+    // Which placeless activities the "Invite ... to an activity" menu offers.
+    public class Dialog_ChooseActivities : Window
+    {
+        private Vector2 scroll;
+
+        public Dialog_ChooseActivities()
+        {
+            doCloseX = true;
+            doCloseButton = true;
+            absorbInputAroundWindow = true;
+            closeOnClickedOutside = true;
+        }
+
+        public override Vector2 InitialSize => new Vector2(420f, 560f);
+
+        public override void DoWindowContents(Rect inRect)
+        {
+            Rect titleRect = new Rect(0f, 0f, inRect.width, 30f);
+            Widgets.Label(titleRect, "BluesActivityList".Translate());
+
+            List<JoyGiverDef> activities = PlacelessActivities.All;
+            Rect listRect = new Rect(0f, 36f, inRect.width, inRect.height - 36f - Window.CloseButSize.y - 8f);
+            Rect viewRect = new Rect(0f, 0f, listRect.width - 20f, activities.Count * 26f);
+
+            Widgets.BeginScrollView(listRect, ref scroll, viewRect);
+            float y = 0f;
+            foreach (JoyGiverDef d in activities)
+            {
+                Rect row = new Rect(0f, y, viewRect.width, 24f);
+                bool enabled = !JoyousSet.IsActivityDisabled(d);
+                bool before = enabled;
+                Widgets.CheckboxLabeled(row, PlacelessActivities.LabelFor(d), ref enabled);
+                if (enabled != before) JoyousSet.SetActivityDisabled(d, !enabled);
+                y += 26f;
+            }
+            Widgets.EndScrollView();
         }
     }
 }

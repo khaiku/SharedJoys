@@ -62,4 +62,39 @@
 	<BluesRespectAreas>Respect allowed areas</BluesRespectAreas>
 	<BluesRespectAreasDesc>Autonomous group events won't send a colonist to a spot outside their allowed area.\nManual invites will ignore this.</BluesRespectAreasDesc>
 
+  <!-- Extensions: art, graves, meditation, placeless activities, diagnosis -->
+<BluesExtendBuildings>Extend building invitations</BluesExtendBuildings>
+  <BluesExtendBuildingsDesc>Lets "Relax at ..." and autonomous events use art pieces, meditation foci and graves, which no JoyGiverDef lists by name.</BluesExtendBuildingsDesc>
+  <BluesEnableActivityMenu>Enable the placeless activity menu</BluesEnableActivityMenu>
+  <BluesEnableActivityMenuDesc>Adds "Invite ... to an activity" on a colonist, for recreation that has no building to click: walks, skygazing, swimming, reading, meditation, drugs and treats.</BluesEnableActivityMenuDesc>
+  <BluesActivityList>Offered activities:</BluesActivityList>
+
+  <BluesInviteToActivity>Invite {0} to an activity...</BluesInviteToActivity>
+  <BluesJustHungOut>{0} has just had a break.</BluesJustHungOut>
+  <BluesActivityUnavailable>{0} (nobody else can right now)</BluesActivityUnavailable>
+  <BluesNoActivity>No activity available right now.</BluesNoActivity>
+  <BluesCantDoActivity>{0} can't do that right now: {1}.</BluesCantDoActivity>
+  <BluesNobodyJoined>Nobody else could join in: {0}.</BluesNobodyJoined>
+
+  <BluesArtAllTaken>Only one colonist can admire {0} at a time. A group needs one artwork each, in the same room.</BluesArtAllTaken>
+  <BluesGraveAllTaken>Only one colonist can pay respects at {0} at a time. A group needs one grave each, close together.</BluesGraveAllTaken>
+  <BluesNoMeditationSpot>No free spot to sit and meditate around {0}.</BluesNoMeditationSpot>
+  <BluesNoSpotBeside>No free spot left beside {0} to sit down, chair or bare ground.</BluesNoSpotBeside>
+  <BluesNeedsChairToWatch>{0} needs a free chair to watch from - one per viewer.</BluesNeedsChairToWatch>
+  <BluesSeatsOnly>{0} only takes {1} at a time. The others need one of their own, or another activity.</BluesSeatsOnly>
+
+  <BluesAct_Meditate>Meditate</BluesAct_Meditate>
+  <BluesAct_Pray>Pray</BluesAct_Pray>
+  <BluesAct_Skygaze>Watch the sky</BluesAct_Skygaze>
+  <BluesAct_GoForWalk>Go for a walk</BluesAct_GoForWalk>
+  <BluesAct_GoSwimming>Go swimming</BluesAct_GoSwimming>
+  <BluesAct_VisitGrave>Visit a grave</BluesAct_VisitGrave>
+  <BluesAct_ViewArt>Admire some art</BluesAct_ViewArt>
+  <BluesAct_BuildSnowman>Build a snowman</BluesAct_BuildSnowman>
+  <BluesAct_VisitSickPawn>Visit the sick</BluesAct_VisitSickPawn>
+  <BluesAct_TakeDrug>Share a drug</BluesAct_TakeDrug>
+  <BluesAct_EatChocolate>Share a treat</BluesAct_EatChocolate>
+  <BluesAct_Reading>Read together</BluesAct_Reading>
+  <BluesChooseActivities>Choose activities...</BluesChooseActivities>
+
 </LanguageData>
