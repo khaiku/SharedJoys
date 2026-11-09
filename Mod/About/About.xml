@@ -14,7 +14,8 @@
 • &lt;b&gt;Sweep Off Feet:&lt;/b&gt; Physically carry a lover to chill.
 • &lt;b&gt;Automated Scheduling:&lt;/b&gt; Configure specific hours where colonists will autonomously organize group hangouts.
 • &lt;b&gt;Highly Customizable:&lt;/b&gt; Tweak friendship thresholds, proximity limits, recreation duration and more.
-	</description>
+
+[url=https://github.com/khaiku/SharedJoys]Source code on GitHub[/url]</description>
     <packageId>blues.sharedjoys</packageId>
     <url>https://github.com/khaiku/SharedJoys</url>
 	<loadAfter>
