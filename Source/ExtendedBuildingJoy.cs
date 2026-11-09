@@ -32,9 +32,11 @@ namespace Blues
         public static ExtJoyKind KindOf(Thing t)
         {
             if (t == null || !t.Spawned) return ExtJoyKind.None;
-            if (IsMeditationFocus(t)) return ExtJoyKind.Meditation;
-            if (t is Building_Grave) return ExtJoyKind.Grave;
+            // A sculpture is also a meditation focus (artistic focus): the art job comes first, or a
+            // meditation job would take it and the group would share one statue instead of spreading.
             if (IsArt(t)) return ExtJoyKind.Art;
+            if (t is Building_Grave) return ExtJoyKind.Grave;
+            if (IsMeditationFocus(t)) return ExtJoyKind.Meditation;
             return ExtJoyKind.None;
         }
 
