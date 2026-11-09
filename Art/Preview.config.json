@@ -1,0 +1,15 @@
+{
+  "panel": {
+    "title": "Shared Joys",
+    "description": "Invite colonists to hang out together, or sweep a lover off their feet for a romantic break."
+  },
+  "background": { "file": "Preview-source.png", "size": "130%", "position": "50% 100%" },
+  "icon": { "file": "ModIcon-source.png", "radius": 48 },
+  "palette": {
+    "veil": "#1A0E08",
+    "inkPrimary": "#FFF3E0",
+    "inkSecondary": "#FFB84D",
+    "accent": "#FF9A1F",
+    "badgeInk": "#1A0E08"
+  }
+}
