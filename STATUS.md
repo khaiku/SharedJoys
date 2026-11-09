@@ -5,7 +5,7 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: code[1.0.0]
+workflow_stage: declareDependencies[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
@@ -42,3 +42,5 @@ Decision, owner, 2026-11-09: `packageId` stays `blues.sharedjoys` (published ide
 saves depend on it), so `Check-ModBasics` keeps reporting the missing `nelim.` prefix on purpose.
 
 Decision, owner, 2026-11-09: 2.e (palette check of the source illustration) waived: `Art/Preview-source.png` is Blues' original art with the title baked in, Preview render validated by the owner.
+
+Stage code, 2026-11-09: 3.a no open `feature` for 1.0.0 (1.7 support and retiring SharedJoysPlus come after the 1.6 playTests and the publication); 3.b `dotnet build` Release green, `Mod/Assemblies/BluesSharedJoys.dll` sha256 identical after rebuild; 3.c `CHANGELOG.md` `[Unreleased]` states the changes.
