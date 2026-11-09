@@ -18,7 +18,8 @@ workshop: none
 published: no
 tested_on: never
 remaining:
-  - "2026-11-09: defect: Art/ missing (ModIcon-source.png, Preview-source.png), ModIcon.png is 256x256 instead of 128x128, Preview.png is 640x360 instead of 896x504"
+  - "2026-11-09: unverified: Pickle ticket 20261109-192311-614-3f5a (initial diagnostic, English, 6 scenarios) queued, result awaited from the TM: RUN_DONE; defNames and nicknames of the suite not checked before"
+  - "2026-11-09: defect: Art/ sources taken (ModIcon-source.png from SharedJoysPlus, with a PLUS ribbon; Preview-source.png = original preview, 640x360 with the SHARED JOYS title baked in); owner decides on 2026-11-10 whether the PLUS stays, then ModIcon.png (128x128) and Preview.png (896x504) are rendered with Render-Preview.cjs and a new Art/Preview.config.json"
   - "2026-11-09: unverified: Art/preview.psd (Blues layered source) kept in Art/ by owner order 2026-11-09, outside the closed Art/ set: Check-ModBasics WARN, ask Audit to allow it"
   - "2026-11-09: unverified: Plus features ported into the code (art, graves, meditation foci, activity menu, ground seating, failure diagnosis, three fixes), builds green, never run in game"
   - "2026-11-09: unverified: Pickle suite written (3 features, 6 scenarios, Tests/Pickle), Check-Steps green, never played; graves, FreeParticipantSlots fix, IsValidChair fix, settings window and French pass have no scenario"
