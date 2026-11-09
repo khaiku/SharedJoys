@@ -1,0 +1,9 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Intermediates stay out of the test mod folder, as they do for the shipped mod. -->
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\..\..\Build\pickle\obj\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)..\..\..\Build\pickle\bin\</BaseOutputPath>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Shared Joys - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.sharedjoys.pickletests</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>In-game functional tests for Shared Joys, run by Pickle. Development only: never published.
+
+The scenarios place buildings next to colonists the fixture already holds, invite them and read what the game did: which job each colonist took, and the reason Shared Joys gives when it cannot place a group. Royalty is required, since the meditation scenario uses its meditation spot.</description>
+  <modDependencies>
+    <li>
+      <packageId>blues.sharedjoys</packageId>
+      <displayName>Shared Joys</displayName>
+    </li>
+    <li>
+      <packageId>Ludeon.RimWorld.Royalty</packageId>
+      <displayName>Royalty</displayName>
+    </li>
+    <li>
+      <packageId>rimworks.pickle</packageId>
+      <displayName>Pickle</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>blues.sharedjoys</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>rimworks.pickle</li>
+  </loadAfter>
+</ModMetaData>
