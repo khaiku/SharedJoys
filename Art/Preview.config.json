@@ -3,8 +3,8 @@
     "title": "Shared Joys",
     "description": "Invite colonists to hang out together, or sweep a lover off their feet for a romantic break."
   },
-  "background": { "file": "Preview-source.png", "size": "130%", "position": "50% 100%" },
-  "icon": { "file": "ModIcon-source.png", "radius": 48 },
+  "background": { "file": "Preview-source.png" },
+  "icon": { "file": "ModIcon-source.png" },
   "palette": {
     "veil": "#1A0E08",
     "inkPrimary": "#FFF3E0",
