@@ -5,7 +5,7 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: makeSources
+workflow_stage: code[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
@@ -25,7 +25,7 @@ remaining:
   - "2026-11-09: defect: French DefInjected missing for the Blues defs and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: 01ba2e9cfe0b307ec9f0aef7d1edfd39f2458666
+protocols_read_sha: 239c919636c8198d41382e67de2b112138b844e7
 updated: 2026-11-09
 ---
 
@@ -40,3 +40,5 @@ Decision, owner, 2026-11-09: 1.a (duplicate search) is not applicable: this is t
 
 Decision, owner, 2026-11-09: `packageId` stays `blues.sharedjoys` (published identifier, existing
 saves depend on it), so `Check-ModBasics` keeps reporting the missing `nelim.` prefix on purpose.
+
+Decision, owner, 2026-11-09: 2.e (palette check of the source illustration) waived: `Art/Preview-source.png` is Blues' original art with the title baked in, Preview render validated by the owner.
