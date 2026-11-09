@@ -16,6 +16,7 @@
 • &lt;b&gt;Highly Customizable:&lt;/b&gt; Tweak friendship thresholds, proximity limits, recreation duration and more.
 	</description>
     <packageId>blues.sharedjoys</packageId>
+    <url>https://github.com/khaiku/SharedJoys</url>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
     </loadAfter>
