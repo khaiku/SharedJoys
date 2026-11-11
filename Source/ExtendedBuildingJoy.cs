@@ -126,9 +126,9 @@ namespace Blues
             switch (KindOf(anchor))
             {
                 case ExtJoyKind.Art:
-                    return PickFreeTarget(pawn, anchor, nothingTaken, ThingRequestGroup.Art, CanViewArt) != null;
+                    return PickFreeTarget(pawn, anchor, nothingTaken, ThingRequestGroup.Art, ViewableAndReachable(IsViewableArt)) != null;
                 case ExtJoyKind.Grave:
-                    return PickFreeTarget(pawn, anchor, nothingTaken, ThingRequestGroup.Grave, CanVisitGrave) != null;
+                    return PickFreeTarget(pawn, anchor, nothingTaken, ThingRequestGroup.Grave, ViewableAndReachable(IsVisitableGrave)) != null;
                 case ExtJoyKind.Meditation:
                     return MakeMeditationJob(pawn, anchor, nothingTaken) != null;
                 default:
@@ -136,7 +136,22 @@ namespace Blues
             }
         }
 
+        /// <summary>
+        /// A validator that ignores reservations: whether the piece could be used at all, not whether
+        /// someone already holds it. The diagnosis needs this, because the first participant's own
+        /// reservation of the anchor would otherwise make "everything is taken" look like "nothing here".
+        /// </summary>
+        static Func<Pawn, Thing, bool> ViewableAndReachable(Func<Pawn, Thing, bool> usable)
+        {
+            return (pawn, t) => usable(pawn, t) && pawn.CanReach(t, PathEndMode.Touch, Danger.None);
+        }
+
         static bool CanViewArt(Pawn pawn, Thing t)
+        {
+            return IsViewableArt(pawn, t) && pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None);
+        }
+
+        static bool IsViewableArt(Pawn pawn, Thing t)
         {
             if (!IsArt(t) || t.Faction != Faction.OfPlayer || t.Fogged()) return false;
 
@@ -150,18 +165,21 @@ namespace Blues
                 && (pawn.ownership?.OwnedRoom == null || pawn.ownership.OwnedRoom != room))
                 return false;
 
-            if (t.IsForbidden(pawn) || !t.IsPoliticallyProper(pawn)) return false;
-            return pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None);
+            return !t.IsForbidden(pawn) && t.IsPoliticallyProper(pawn);
         }
 
         static bool CanVisitGrave(Pawn pawn, Thing t)
+        {
+            return IsVisitableGrave(pawn, t) && pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None);
+        }
+
+        static bool IsVisitableGrave(Pawn pawn, Thing t)
         {
             Building_Grave grave = t as Building_Grave;
             if (grave == null || !grave.HasCorpse || grave.Fogged()) return false;
             if (grave.Faction != Faction.OfPlayer) return false;
             if (grave.Corpse.InnerPawn?.Faction != Faction.OfPlayer) return false;
-            if (grave.IsForbidden(pawn) || !grave.IsPoliticallyProper(pawn)) return false;
-            return pawn.CanReserveAndReach(grave, PathEndMode.Touch, Danger.None);
+            return !grave.IsForbidden(pawn) && grave.IsPoliticallyProper(pawn);
         }
 
         /// <summary>
