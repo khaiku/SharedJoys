@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Blues_InviteHangout.label>Invitation à se détendre</Blues_InviteHangout.label>
+  <Blues_InviteHangout.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] a invité [RECIPIENT_nameDef] à se détendre un moment.</Blues_InviteHangout.logRulesInitiator.rulesStrings.0>
+  <Blues_InviteHangout.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a proposé une pause avec [RECIPIENT_nameDef].</Blues_InviteHangout.logRulesInitiator.rulesStrings.1>
+  <Blues_InviteHangout.logRulesInitiator.rulesStrings.2>r_logentry->[INITIATOR_nameDef] a partagé un moment de détente avec [RECIPIENT_nameDef].</Blues_InviteHangout.logRulesInitiator.rulesStrings.2>
+  <Blues_GroupHangout.label>Organisation d'un rassemblement</Blues_GroupHangout.label>
+  <Blues_GroupHangout.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] a rallié [RECIPIENT_nameDef] pour un moment de détente en groupe.</Blues_GroupHangout.logRulesInitiator.rulesStrings.0>
+  <Blues_GroupHangout.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a réuni [RECIPIENT_nameDef] et toute la bande pour souffler.</Blues_GroupHangout.logRulesInitiator.rulesStrings.1>
+  <Blues_GroupHangout.logRulesInitiator.rulesStrings.2>r_logentry->[INITIATOR_nameDef] a organisé une pause commune avec [RECIPIENT_nameDef].</Blues_GroupHangout.logRulesInitiator.rulesStrings.2>
+  <Blues_SweepOffFeet.label>Transport dans les bras</Blues_SweepOffFeet.label>
+  <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] a pris [RECIPIENT_nameDef] dans ses bras, le cœur léger.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.0>
+  <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a enlevé [RECIPIENT_nameDef] pour un moment romantique.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>
+  <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.2>r_logentry->[INITIATOR_nameDef] a porté [RECIPIENT_nameDef] avec tendresse pour aller se détendre.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.2>
+</LanguageData>

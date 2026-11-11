@@ -52,12 +52,12 @@
   <BluesNeedLove>Romance minimale pour emporter dans ses bras : {0}</BluesNeedLove>
   <BluesNeedLoveDesc>Les deux amoureux doivent s'apprécier au moins à ce point pour que l'un porte l'autre. Vaut pour les ordres manuels comme pour les portés autonomes.</BluesNeedLoveDesc>
 
-  <BluesLoverCarryPlay>Les amoureux s'emportent vers les sorties : {0} %</BluesLoverCarryPlay>
-  <BluesLoverCarryPlayOff>Les amoureux s'emportent vers les sorties : désactivé</BluesLoverCarryPlayOff>
-  <BluesLoverCarryBed>Les amoureux s'emportent au lit : {0} %</BluesLoverCarryBed>
-  <BluesLoverCarryBedOff>Les amoureux s'emportent au lit : désactivé</BluesLoverCarryBedOff>
-  <BluesLoverCarryPlayDesc>Probabilité qu'un colon porte son amoureux jusqu'au lieu de détente au lieu d'y aller à pied.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions.</BluesLoverCarryPlayDesc>
-  <BluesLoverCarryBedDesc>Quand un colon rejoint le lit qu'il partage avec son amoureux, probabilité qu'il fasse demi-tour, aille le chercher et le porte au lit. Tirée une fois par coucher et par colon.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions. Ne se déclenche jamais pendant les heures de travail de l'amoureux, s'il est déjà couché, ou si la colonie est en danger.</BluesLoverCarryBedDesc>
+  <BluesLoverCarryPlay>Les amoureux portent l'autre vers les sorties : {0} %</BluesLoverCarryPlay>
+  <BluesLoverCarryPlayOff>Les amoureux portent l'autre vers les sorties : désactivé</BluesLoverCarryPlayOff>
+  <BluesLoverCarryBed>Les amoureux portent l'autre au lit : {0} %</BluesLoverCarryBed>
+  <BluesLoverCarryBedOff>Les amoureux portent l'autre au lit : désactivé</BluesLoverCarryBedOff>
+  <BluesLoverCarryPlayDesc>Probabilité qu'un colon porte l'autre jusqu'au lieu de détente au lieu d'y aller à pied.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions.</BluesLoverCarryPlayDesc>
+  <BluesLoverCarryBedDesc>Lorsqu'un colon se dirige vers le lit partagé avec l'autre, probabilité de faire demi-tour, d'aller chercher l'autre pour l'emporter jusqu'au lit. Tirée une fois par coucher et par colon.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions. Ne se déclenche jamais lorsque l'autre travaille, est déjà au lit ou que la colonie est en danger.</BluesLoverCarryBedDesc>
 
   <BluesScheduleJoy>Déclencher les événements de groupe pendant les heures « Loisir »</BluesScheduleJoy>
   <BluesScheduleJoyDesc>Les colons dont l'emploi du temps indique Loisir peuvent lancer ou rejoindre un événement autonome.</BluesScheduleJoyDesc>
@@ -83,7 +83,7 @@
 
   <!-- Extensions: art, graves, meditation, placeless activities, diagnosis -->
 <BluesExtendBuildings>Étendre les invitations aux bâtiments</BluesExtendBuildings>
-  <BluesExtendBuildingsDesc>Permet à « Relax at ... » et aux événements autonomes d'utiliser les œuvres d'art, les foyers de méditation et les tombes, qu'aucun JoyGiverDef ne cite nommément.</BluesExtendBuildingsDesc>
+  <BluesExtendBuildingsDesc>Permet à « Se détendre à… » et aux événements autonomes d'utiliser les œuvres d'art, les foyers de méditation et les tombes, qu'aucun JoyGiverDef ne cite nommément.</BluesExtendBuildingsDesc>
   <BluesEnableActivityMenu>Activer le menu des activités sans lieu</BluesEnableActivityMenu>
   <BluesEnableActivityMenuDesc>Ajoute « Inviter ... à une activité » sur un colon, pour les loisirs qui n'ont aucun bâtiment à cliquer : promenade, contemplation du ciel, baignade, lecture, méditation, substances et friandises.</BluesEnableActivityMenuDesc>
   <BluesActivityList>Activités proposées :</BluesActivityList>
@@ -96,11 +96,11 @@
   <BluesNobodyJoined>Personne n'a pu suivre : {0}.</BluesNobodyJoined>
 
   <BluesArtAllTaken>{0} ne se contemple qu'à un à la fois. Il faut une œuvre par participant, dans la même pièce.</BluesArtAllTaken>
-  <BluesGraveAllTaken>On ne se recueille qu'à un devant {0}. Il faut une tombe par participant, à proximité l'une de l'autre.</BluesGraveAllTaken>
+  <BluesGraveAllTaken>On ne se recueille qu'à un devant {0}. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>Aucune place libre pour s'asseoir et méditer autour de {0}.</BluesNoMeditationSpot>
   <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, chaise ou sol nu.</BluesNoSpotBeside>
   <BluesNeedsChairToWatch>{0} demande une chaise libre pour s'y asseoir, une par spectateur.</BluesNeedsChairToWatch>
-  <BluesSeatsOnly>{0} ne peut accueillir que {1} personne(s) à la fois. Les autres ont besoin du leur, ou d'une autre activité.</BluesSeatsOnly>
+  <BluesSeatsOnly>Capacité de {0} : {1}. Les autres ont besoin de leur propre exemplaire, ou d'une autre activité.</BluesSeatsOnly>
 
   <BluesAct_Meditate>Méditer</BluesAct_Meditate>
   <BluesAct_Pray>Prier</BluesAct_Pray>

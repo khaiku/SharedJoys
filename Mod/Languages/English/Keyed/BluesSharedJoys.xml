@@ -13,11 +13,11 @@
 	<BluesNotEnoughFren>{0} and {1} are not that close.</BluesNotEnoughFren>
 	<BluesNoJoySpot>Not a fun place to hang out with.</BluesNoJoySpot>
 	<BluesNoRoomForJoy>Not enough space for everyone to chill.</BluesNoRoomForJoy>
-	<BluesCantReach>{0} can't reach to {1}.</BluesCantReach>
+	<BluesCantReach>{0} can't reach {1}.</BluesCantReach>
 	
 	<BluesRelaxAt>Relax at {0}</BluesRelaxAt>
 	<BluesInviteTo>Invite {0} to hang out at...</BluesInviteTo>
-	<BluesCarryLoverTo>Sweep {0} off {1} feet to...</BluesCarryLoverTo>
+	<BluesCarryLoverTo>Sweep {0} off their feet to...</BluesCarryLoverTo>
 	
 	<BluesJoyDrainTo>Sync recreation levels down to: {0}%</BluesJoyDrainTo>
 	<BluesDontDrain>Don't drain recreation needs</BluesDontDrain>
@@ -37,7 +37,7 @@
 	<BluesLoverCarryPlayOff>Lovers sweep each other off to hangouts: off</BluesLoverCarryPlayOff>
 	<BluesLoverCarryBed>Lovers sweep each other off to bed: {0}%</BluesLoverCarryBed>
 	<BluesLoverCarryBedOff>Lovers sweep each other off to bed: off</BluesLoverCarryBedOff>
-	<BluesLoverCarryPlayDesc>The chance a colonist carry their lover to hang out instead of walking.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other.</BluesLoverCarryPlayDesc>
+	<BluesLoverCarryPlayDesc>The chance that a colonist carries their lover to hang out instead of walking.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other.</BluesLoverCarryPlayDesc>
 	<BluesLoverCarryBedDesc>When a colonist heads to a bed they share with their lover, this is the chance they turn around, fetch the lover and carry them to bed too. Rolled once per bedtime, per colonist.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other. Never fires while the lover is on work hours, already in bed, or the colony is in danger.</BluesLoverCarryBedDesc>
 	
 	<BluesScheduleJoy>Auto-trigger group events during 'Recreation' hours</BluesScheduleJoy>

@@ -12,7 +12,7 @@ upstream_mod_remotes: N/A
 settings_audit: partial
 localization: unchecked
 translation_en: unchecked
-translation_fr: unchecked
+translation_fr: partial
 dependencies: none - no mod is required or referenced (no modDependencies, no MayRequire, no patches, no LoadFolders.xml, no OptionalCompat.xml: Check-OptionalCompat 0 targets, 0 declared); loadAfter Ludeon.RimWorld only; DLC are optional and guarded in code (ModsConfig.RoyaltyActive in ExtendedBuildingJoy.cs, ModsConfig.IdeologyActive in ExtendedBuildingJoy.cs); supportedVersions 1.6; re-read against the sources and About.xml 2026-11-11 at 4878c19
 workshop_required_items: n/a, no mandatory Workshop dependency (About.xml has no modDependencies)
 workshop: none
@@ -24,8 +24,8 @@ remaining:
   - "2026-11-09: unverified: Pickle suite written (3 features, 6 scenarios, Tests/Pickle), Check-Steps green, played once (4 of 6 green); graves, FreeParticipantSlots fix, IsValidChair fix, settings window and French pass have no scenario"
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
   - "2026-11-11: unverified: settings in game (first use, effect of each option, persistence over restart and save reload, MainButton shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs), settings scenarios to write at writeTests; Settings audit section"
-  - "2026-11-09: defect: French DefInjected missing for the Blues defs (incl. MainButtonDef Blues_SharedJoysSettings label and description) and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
-  - "2026-11-11: to do at localize (rule 6.g, owner 2026-11-11): once the French is written (DefInjected, BluesCarryLoverTo), set translation_fr: pending_review, run /review-translation, apply what is justified, then ask Virginie to validate; no review run yet"
+  - "2026-11-12: French written: DefInjected for every Blues def (InteractionDef with log rules, ThoughtDef, JobDef, MainButtonDef), 0 coverage finding; Check-Translations still FAIL on 12 false BluesAct_* unused-key reports (keys read by dynamic lookup); BluesCarryLoverTo token mismatch removed by dropping the English objective pronoun (EN: Sweep {0} off their feet to..., code passes one argument)"
+  - "2026-11-12: /review-translation run (ChatGPT page 1 of 1), applied: 4 French labels, 3 French descriptions, 2 English fixes, DefInjected added; waits for Virginie validation of the French (6.g), then translation_fr complete; not run in game (unverified)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
 protocols_read_sha: b04475c28fcbf27bd47f4ee877f08147e180efb9

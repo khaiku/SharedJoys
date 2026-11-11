@@ -156,7 +156,7 @@ namespace Blues
             Pawn inviter = context.FirstSelectedPawn;
             FloatMenuOption baseOption = base.GetSingleOptionFor(clickedPawn, context); if (baseOption != null) return baseOption;
 
-            return new FloatMenuOption("BluesCarryLoverTo".Translate(clickedPawn.LabelShort, clickedPawn.gender.GetObjective()), delegate
+            return new FloatMenuOption("BluesCarryLoverTo".Translate(clickedPawn.LabelShort), delegate
             {
                 TargetingParameters tp = new TargetingParameters
                 {
