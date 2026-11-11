@@ -30,6 +30,7 @@ namespace SharedJoys.PickleSteps
         {
             public readonly Dictionary<string, Thing> Things = new Dictionary<string, Thing>();
             public bool? Invited;
+            public string Reason;
             public bool? ExtendBefore;
         }
 
@@ -121,7 +122,13 @@ namespace SharedJoys.PickleSteps
             Pawn invitee = Colonist(ctx, inviteeNick);
             ctx.Assert(JoyUtil.IsValidJoyBuilding(building, true),
                 $"Shared Joys does not accept \"{defName}\" as a recreation building");
-            StageOf(ctx).Invited = JoyUtil.TryAssignSharedJoy(inviter, invitee, building);
+            Stage stage = StageOf(ctx);
+            stage.Invited = JoyUtil.TryAssignSharedJoy(inviter, invitee, building);
+
+            // The float menu calls Notify right after a failed assignment, on the same tick, and the
+            // diagnosis only replaces the generic text on that tick. Read it here, not in a later step.
+            string text = "<generic text>";
+            stage.Reason = FailureDiagnosis.TryTakeOver(ref text) ? text : null;
         }
 
         [Then("Shared Joys: the invitation succeeded")]
@@ -145,10 +152,8 @@ namespace SharedJoys.PickleSteps
         public void ReasonIs(PickleContext ctx, string defName, string key)
         {
             Building building = PlacedBuilding(ctx, defName);
-            string generic = "<generic text>";
-            string text = generic;
-            bool replaced = FailureDiagnosis.TryTakeOver(ref text);
-            ctx.Assert(replaced, "no diagnosis was worked out on this tick: Shared Joys would show its generic text");
+            string text = StageOf(ctx).Reason;
+            ctx.Assert(text != null, "no diagnosis was worked out on the tick of the invitation: Shared Joys would show its generic text");
             string expected = key.Translate(building.LabelShort).ToString();
             ctx.Assert(text == expected, $"the reason was \"{text}\", expected \"{expected}\" ({key})");
         }
