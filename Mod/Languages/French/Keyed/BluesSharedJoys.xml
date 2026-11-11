@@ -20,11 +20,11 @@
   <BluesEnableMenus>Activer les menus contextuels pour les invitations manuelles</BluesEnableMenus>
 
   <BluesEnableAuto>Activer les événements autonomes</BluesEnableAuto>
-  <BluesEnableAutoDesc>Laisse les colons organiser des sorties de groupe et emporter leur amoureux dans leurs bras d'eux-mêmes.</BluesEnableAutoDesc>
+  <BluesEnableAutoDesc>Permet aux colons d'organiser des moments de détente en groupe de leur propre initiative et d'emporter leur partenaire dans leurs bras.</BluesEnableAutoDesc>
 
   <!-- Les six refus. C'est celui-ci, BluesNoRoomForJoy, qui s'affichait en anglais en pleine
        partie française et qui a lancé toute cette recherche. -->
-  <BluesAlreadySatisfied>{0} est déjà diverti.</BluesAlreadySatisfied>
+  <BluesAlreadySatisfied>{0} est déjà en train de se divertir.</BluesAlreadySatisfied>
   <BluesNotEnoughLove>{0} et {1} n'en sont pas encore là.</BluesNotEnoughLove>
   <BluesNotEnoughFren>{0} et {1} ne sont pas si proches.</BluesNotEnoughFren>
   <BluesNoJoySpot>Ce n'est pas un endroit où l'on s'amuse.</BluesNoJoySpot>
@@ -52,10 +52,10 @@
   <BluesNeedLove>Romance minimale pour emporter dans ses bras : {0}</BluesNeedLove>
   <BluesNeedLoveDesc>Les deux amoureux doivent s'apprécier au moins à ce point pour que l'un porte l'autre. Vaut pour les ordres manuels comme pour les portés autonomes.</BluesNeedLoveDesc>
 
-  <BluesLoverCarryPlay>Les amoureux portent l'autre vers les sorties : {0} %</BluesLoverCarryPlay>
-  <BluesLoverCarryPlayOff>Les amoureux portent l'autre vers les sorties : désactivé</BluesLoverCarryPlayOff>
-  <BluesLoverCarryBed>Les amoureux portent l'autre au lit : {0} %</BluesLoverCarryBed>
-  <BluesLoverCarryBedOff>Les amoureux portent l'autre au lit : désactivé</BluesLoverCarryBedOff>
+  <BluesLoverCarryPlay>Les amoureux portent leur partenaire vers les lieux de détente : {0} %</BluesLoverCarryPlay>
+  <BluesLoverCarryPlayOff>Les amoureux portent leur partenaire vers les lieux de détente : désactivé</BluesLoverCarryPlayOff>
+  <BluesLoverCarryBed>Les amoureux portent leur partenaire au lit : {0} %</BluesLoverCarryBed>
+  <BluesLoverCarryBedOff>Les amoureux portent leur partenaire au lit : désactivé</BluesLoverCarryBedOff>
   <BluesLoverCarryPlayDesc>Probabilité qu'un colon porte l'autre jusqu'au lieu de détente au lieu d'y aller à pied.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions.</BluesLoverCarryPlayDesc>
   <BluesLoverCarryBedDesc>Lorsqu'un colon se dirige vers le lit partagé avec l'autre, probabilité de faire demi-tour, d'aller chercher l'autre pour l'emporter jusqu'au lit. Tirée une fois par coucher et par colon.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions. Ne se déclenche jamais lorsque l'autre travaille, est déjà au lit ou que la colonie est en danger.</BluesLoverCarryBedDesc>
 
@@ -98,7 +98,7 @@
   <BluesArtAllTaken>{0} ne se contemple qu'à un à la fois. Il faut une œuvre par participant, dans la même pièce.</BluesArtAllTaken>
   <BluesGraveAllTaken>On ne se recueille qu'à un devant {0}. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>Aucune place libre pour s'asseoir et méditer autour de {0}.</BluesNoMeditationSpot>
-  <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, chaise ou sol nu.</BluesNoSpotBeside>
+  <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, sur une chaise ou au sol.</BluesNoSpotBeside>
   <BluesNeedsChairToWatch>{0} demande une chaise libre pour s'y asseoir, une par spectateur.</BluesNeedsChairToWatch>
   <BluesSeatsOnly>Capacité de {0} : {1}. Les autres ont besoin de leur propre exemplaire, ou d'une autre activité.</BluesSeatsOnly>
 

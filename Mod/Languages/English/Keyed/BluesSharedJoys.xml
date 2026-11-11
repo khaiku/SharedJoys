@@ -11,7 +11,7 @@
 	<BluesAlreadySatisfied>{0} is already entertained.</BluesAlreadySatisfied>
 	<BluesNotEnoughLove>{0} and {1} aren't quite feeling it.</BluesNotEnoughLove>
 	<BluesNotEnoughFren>{0} and {1} are not that close.</BluesNotEnoughFren>
-	<BluesNoJoySpot>Not a fun place to hang out with.</BluesNoJoySpot>
+	<BluesNoJoySpot>Not a fun place to hang out.</BluesNoJoySpot>
 	<BluesNoRoomForJoy>Not enough space for everyone to chill.</BluesNoRoomForJoy>
 	<BluesCantReach>{0} can't reach {1}.</BluesCantReach>
 	
