@@ -19,7 +19,7 @@ workshop: none
 published: no
 tested_on: never
 remaining:
-  - "2026-11-09: unverified: initial diagnostic 20261109-192311-614-3f5a: 4 of 6 scenarios passed (setting off, meditate together, chess without chair, walk); 2 failed because a sculpture (also a meditation focus) took a Meditate job; KindOf fix committed, small ticket 20261109-230537-595-3e61 (the 2 art scenarios) done 2026-11-10: 1 of 2 passed (two sculptures take two colonists), 'one sculpture for two colonists is refused with its own reason' failed: 'no diagnosis was worked out on this tick: Shared Joys would show its generic text' (step: reason given for SculptureSmall is BluesArtAllTaken); fixed 2026-11-11 at 9c826fa (HasAnyTarget ignored reservations wrongly: first participant's own reservation of the anchor made the diagnosis null), small ticket 20261111-230126-171-b6e1 (that scenario alone) queued, result awaited from the TM: RUN_DONE"
+  - "2026-11-09: unverified: initial diagnostic 20261109-192311-614-3f5a: 4 of 6 scenarios passed (setting off, meditate together, chess without chair, walk); 2 failed because a sculpture (also a meditation focus) took a Meditate job; KindOf fix committed, small ticket 20261109-230537-595-3e61 (the 2 art scenarios) done 2026-11-10: 1 of 2 passed (two sculptures take two colonists), 'one sculpture for two colonists is refused with its own reason' failed: 'no diagnosis was worked out on this tick: Shared Joys would show its generic text' (step: reason given for SculptureSmall is BluesArtAllTaken); fixed 2026-11-11 at 9c826fa (HasAnyTarget ignored reservations wrongly: first participant's own reservation of the anchor made the diagnosis null), ticket 20261111-230126-171-b6e1 failed again (same message): cause is the Pickle step, it read the diagnosis on a later tick than the invitation (the float menu reads it on the same tick); step fixed at 24931fd, small ticket 20261112-003029-712-afea queued, result awaited from the TM: RUN_DONE"
   - "2026-11-09: unverified: Plus features ported into the code (art, graves, meditation foci, activity menu, ground seating, failure diagnosis, three fixes), builds green, never run in game"
   - "2026-11-09: unverified: Pickle suite written (3 features, 6 scenarios, Tests/Pickle), Check-Steps green, played once (4 of 6 green); graves, FreeParticipantSlots fix, IsValidChair fix, settings window and French pass have no scenario"
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
@@ -28,7 +28,7 @@ remaining:
   - "2026-11-11: to do at localize (rule 6.g, owner 2026-11-11): once the French is written (DefInjected, BluesCarryLoverTo), set translation_fr: pending_review, run /review-translation, apply what is justified, then ask Virginie to validate; no review run yet"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: f859f6aa73ec1ba363ea978072047685f77d77a9
+protocols_read_sha: b04475c28fcbf27bd47f4ee877f08147e180efb9
 updated: 2026-11-11
 ---
 
