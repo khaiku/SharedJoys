@@ -67,7 +67,7 @@
   <BluesGroupJoysPerDay>Événements de groupe visés par jour : {0}</BluesGroupJoysPerDay>
   <BluesGroupJoysPerDayDesc>Nombre d'événements autonomes que la colonie vise chaque jour, répartis sur les heures autorisées ci-dessous.</BluesGroupJoysPerDayDesc>
   <BluesActiveHours>Heures autorisées pour les événements autonomes :</BluesActiveHours>
-  <BluesActiveHoursDesc>Clic gauche sur une heure pour l'autoriser, clic droit pour l'interdire.\nLes portés au lit suivent simplement l'heure du coucher.</BluesActiveHoursDesc>
+  <BluesActiveHoursDesc>Clic gauche sur une heure pour l'autoriser, clic droit pour l'interdire.\nLe transport au lit suit simplement l'heure du coucher.</BluesActiveHoursDesc>
 
   <BluesRequireProximity>Distance maximale pour inviter : {0} cases</BluesRequireProximity>
   <BluesRequireProximityDesc>Distance à laquelle deux colons peuvent encore s'inviter, sauf s'ils se trouvent déjà dans la même pièce.</BluesRequireProximityDesc>
@@ -85,7 +85,7 @@
 <BluesExtendBuildings>Étendre les invitations aux bâtiments</BluesExtendBuildings>
   <BluesExtendBuildingsDesc>Permet à « Se détendre à… » et aux événements autonomes d'utiliser les œuvres d'art, les foyers de méditation et les tombes, qu'aucun JoyGiverDef ne cite nommément.</BluesExtendBuildingsDesc>
   <BluesEnableActivityMenu>Activer le menu des activités sans lieu</BluesEnableActivityMenu>
-  <BluesEnableActivityMenuDesc>Ajoute « Inviter ... à une activité » sur un colon, pour les loisirs qui n'ont aucun bâtiment à cliquer : promenade, contemplation du ciel, baignade, lecture, méditation, substances et friandises.</BluesEnableActivityMenuDesc>
+  <BluesEnableActivityMenuDesc>Ajoute « Inviter ... à une activité » sur un colon, pour les loisirs sans bâtiment sur lequel cliquer : promenade, contemplation du ciel, baignade, lecture, méditation, substances et friandises.</BluesEnableActivityMenuDesc>
   <BluesActivityList>Activités proposées :</BluesActivityList>
 
   <BluesInviteToActivity>Inviter {0} à une activité...</BluesInviteToActivity>
@@ -93,10 +93,10 @@
   <BluesActivityUnavailable>{0} (personne d'autre ne peut s'y mettre)</BluesActivityUnavailable>
   <BluesNoActivity>Aucune activité possible pour l'instant.</BluesNoActivity>
   <BluesCantDoActivity>{0} ne peut pas s'y mettre : {1}.</BluesCantDoActivity>
-  <BluesNobodyJoined>Personne n'a pu suivre : {0}.</BluesNobodyJoined>
+  <BluesNobodyJoined>Personne d'autre n'a pu participer : {0}.</BluesNobodyJoined>
 
-  <BluesArtAllTaken>{0} ne se contemple qu'à un à la fois. Il faut une œuvre par participant, dans la même pièce.</BluesArtAllTaken>
-  <BluesGraveAllTaken>On ne se recueille qu'à un devant {0}. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
+  <BluesArtAllTaken>Une seule personne peut contempler {0} à la fois. Il faut une œuvre par participant, dans la même pièce.</BluesArtAllTaken>
+  <BluesGraveAllTaken>Une seule personne peut se recueillir devant {0} à la fois. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>Aucune place libre pour s'asseoir et méditer autour de {0}.</BluesNoMeditationSpot>
   <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, sur une chaise ou au sol.</BluesNoSpotBeside>
   <BluesNeedsChairToWatch>{0} demande une chaise libre pour s'y asseoir, une par spectateur.</BluesNeedsChairToWatch>
