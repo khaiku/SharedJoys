@@ -24,9 +24,10 @@ remaining:
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
   - "2026-11-09: defect: French DefInjected missing for the Blues defs and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
+  - "2026-11-11: open 4.g: no dependency record (dependencies, optional compat, DLC Royalty/Ideology guarded in code, date and revision); workshop_required_items missing (n/a, not released yet); then 4.h to settings[1.0.0]"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
 protocols_read_sha: 3937f9048f97c0e3cd28ab4c492ddef003895f23
-updated: 2026-11-09
+updated: 2026-11-11
 ---
 
 # Shared Joys: status
