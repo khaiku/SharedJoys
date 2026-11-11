@@ -16,6 +16,10 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - A failed manual invitation now says why (one artwork per viewer, no seat left, no free spot to
   meditate) instead of always "Not enough space".
 - French translation.
+- Settings window: a "Reset to defaults" button, a note explaining why the autonomous-event
+  settings are hidden when that switch is off, and a translatable tooltip on the hour table.
+- Optional "Shared Joys" shortcut for button-customization mods such as RIMMSQOL, hidden by default,
+  opening the same settings window.
 
 ### Fixed
 

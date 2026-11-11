@@ -5,11 +5,11 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: settings[1.0.0]
+workflow_stage: localize[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
-settings_audit: unchecked
+settings_audit: partial
 localization: unchecked
 translation_en: unchecked
 translation_fr: unchecked
@@ -23,10 +23,11 @@ remaining:
   - "2026-11-09: unverified: Plus features ported into the code (art, graves, meditation foci, activity menu, ground seating, failure diagnosis, three fixes), builds green, never run in game"
   - "2026-11-09: unverified: Pickle suite written (3 features, 6 scenarios, Tests/Pickle), Check-Steps green, played once (4 of 6 green); graves, FreeParticipantSlots fix, IsValidChair fix, settings window and French pass have no scenario"
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
-  - "2026-11-09: defect: French DefInjected missing for the Blues defs and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
+  - "2026-11-11: unverified: settings in game (first use, effect of each option, persistence over restart and save reload, MainButton shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs), settings scenarios to write at writeTests; Settings audit section"
+  - "2026-11-09: defect: French DefInjected missing for the Blues defs (incl. MainButtonDef Blues_SharedJoysSettings label and description) and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: ead9cafa92dd96d6fa0daed3178e8d98dd56f5bf
+protocols_read_sha: f859f6aa73ec1ba363ea978072047685f77d77a9
 updated: 2026-11-11
 ---
 
@@ -43,5 +44,17 @@ Decision, owner, 2026-11-09: `packageId` stays `blues.sharedjoys` (published ide
 saves depend on it), so `Check-ModBasics` keeps reporting the missing `nelim.` prefix on purpose.
 
 Decision, owner, 2026-11-09: 2.e (palette check of the source illustration) waived: `Art/Preview-source.png` is Blues' original art with the title baked in, Preview render validated by the owner.
+
+## Settings audit
+
+2026-11-11, revision `ae750e7` (files: `Source/Mod.cs`, `Source/MainButtonWorker_Settings.cs`, `Mod/Defs/BluesMainButton.xml`, Keyed EN and FR).
+
+- **Inventory (5.a):** 19 persisted options in `JoyousSet` (Scribe, global `ModSettings`, so scope is global, not per save): menus on/off, autonomous events on/off, recreation hours and anything hours, daily events (0 to 24), active hours table (24 toggles), joy drain floor, manual and automatic joy ceilings, friendship and romance thresholds, range, room pickiness, respect allowed areas, lover carry chances (play, bed), extend buildings (art, graves, meditation), activity menu on/off, list of disabled activities. Each has a concrete use read in code; no decorative option.
+- **Decision (5.b):** settings are useful, all kept.
+- **Primary access (5.c):** `BluesJoys : Mod` with `SettingsCategory()` and `DoSettingsWindowContents`: Mod options, Shared Joys, no XML edit, no RIMMSQOL needed.
+- **Shortcut (5.d):** was missing (defect). Added `Mod/Defs/BluesMainButton.xml` (`Blues_SharedJoysSettings`, `buttonVisible` false, `validWithoutMap` true) and `Blues.MainButtonWorker_Settings` opening `Dialog_ModSettings` on the same mod. Opening the dialog from a revealed button is RIMMSQOL's domain, not checked on purpose (MOD_SETTINGS.md section 2).
+- **Usage review (5.e):** every slider and checkbox has a label and a tooltip; window scrolls (`SettingsHeight` 870). Fixed in this pass: no reset (added "Reset to defaults", applies on window close, global), dependent controls vanished without a word when autonomous events are off (grey note added), hour tooltip was English-only (`BluesHourTip`). Timing: values apply immediately in memory; `WriteSettings` on close resets the daily joy counters of loaded maps. Inputs are sliders and checkboxes with fixed bounds; `hourlyToggles` is repaired to 24 entries on load; `settingsVersion` migration exists (1 and 2).
+- **Tests (5.f):** compile green (`dotnet build` Release, 0 warnings); Check-ModBasics (only the `nelim.` prefix, owner decision), Check-Steps green; Check-Translations 26 findings, all already tracked under the French DefInjected defect and the false `BluesAct_*` unused-key reports, plus the two new MainButtonDef French fields. Not run: no unit-test project for settings, no Pickle scenario for the settings window. In-game rows of MOD_SETTINGS.md section 4 (first use, actual effect of each option, persistence across restart and save reload, shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs) are `unverified`, for `playTests`.
+- **Result (5.g):** `settings_audit: partial`.
 
 Stage code, 2026-11-09: 3.a no open `feature` for 1.0.0 (1.7 support and retiring SharedJoysPlus come after the 1.6 playTests and the publication); 3.b `dotnet build` Release green, `Mod/Assemblies/BluesSharedJoys.dll` sha256 identical after rebuild; 3.c `CHANGELOG.md` `[Unreleased]` states the changes.
