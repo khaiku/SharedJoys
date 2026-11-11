@@ -5,7 +5,7 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: declareDependencies[1.0.0]
+workflow_stage: settings[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
@@ -13,7 +13,8 @@ settings_audit: unchecked
 localization: unchecked
 translation_en: unchecked
 translation_fr: unchecked
-dependencies: unchecked
+dependencies: none - no mod is required or referenced (no modDependencies, no MayRequire, no patches, no LoadFolders.xml, no OptionalCompat.xml: Check-OptionalCompat 0 targets, 0 declared); loadAfter Ludeon.RimWorld only; DLC are optional and guarded in code (ModsConfig.RoyaltyActive in ExtendedBuildingJoy.cs, ModsConfig.IdeologyActive in ExtendedBuildingJoy.cs); supportedVersions 1.6; re-read against the sources and About.xml 2026-11-11 at 4878c19
+workshop_required_items: n/a, no mandatory Workshop dependency (About.xml has no modDependencies)
 workshop: none
 published: no
 tested_on: never
@@ -24,9 +25,8 @@ remaining:
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
   - "2026-11-09: defect: French DefInjected missing for the Blues defs and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
-  - "2026-11-11: open 4.g: no dependency record (dependencies, optional compat, DLC Royalty/Ideology guarded in code, date and revision); workshop_required_items missing (n/a, not released yet); then 4.h to settings[1.0.0]"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: 3937f9048f97c0e3cd28ab4c492ddef003895f23
+protocols_read_sha: ead9cafa92dd96d6fa0daed3178e8d98dd56f5bf
 updated: 2026-11-11
 ---
 
