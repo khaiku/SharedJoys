@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>Blues_SharedJoysSettings</defName>
+    <label>Shared Joys</label>
+    <description>Open the Shared Joys mod settings.</description>
+    <workerClass>Blues.MainButtonWorker_Settings</workerClass>
+    <buttonVisible>false</buttonVisible>
+    <validWithoutMap>true</validWithoutMap>
+    <order>910</order>
+  </MainButtonDef>
+</Defs>

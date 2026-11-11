@@ -96,5 +96,9 @@
   <BluesAct_EatChocolate>Share a treat</BluesAct_EatChocolate>
   <BluesAct_Reading>Read together</BluesAct_Reading>
   <BluesChooseActivities>Choose activities...</BluesChooseActivities>
+  <BluesResetDefaults>Reset to defaults</BluesResetDefaults>
+  <BluesResetDefaultsDesc>Puts every Shared Joys setting back to its default value.\nSettings are global: the change applies to the current game and to every other game once this window is closed.</BluesResetDefaultsDesc>
+  <BluesHourTip>Hour {0} to {1}</BluesHourTip>
+  <BluesAutoOffNote>Autonomous group events are off, so the settings that shape them (hours, daily events, range, room pickiness, areas, lovers carrying each other) are hidden. Turn the switch above back on to show them.</BluesAutoOffNote>
 
 </LanguageData>

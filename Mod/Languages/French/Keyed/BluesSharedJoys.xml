@@ -119,5 +119,9 @@
        ne porte que les nôtres. Les y laisser aussi produisait trois doublons, RimWorld fusionnant
        les données Keyed de tous les mods actifs pour une même langue. -->
   <BluesChooseActivities>Choisir les activités...</BluesChooseActivities>
+  <BluesResetDefaults>Rétablir les valeurs par défaut</BluesResetDefaults>
+  <BluesResetDefaultsDesc>Remet chaque réglage de Shared Joys à sa valeur par défaut.\nLes réglages sont globaux : le changement s'applique à la partie en cours et à toutes les autres une fois cette fenêtre fermée.</BluesResetDefaultsDesc>
+  <BluesHourTip>De {0} h à {1} h</BluesHourTip>
+  <BluesAutoOffNote>Les événements de groupe autonomes sont désactivés : les réglages qui les concernent (heures, événements par jour, portée, exigence sur la pièce, zones, colons qui se portent) sont masqués. Réactiver l'interrupteur ci-dessus pour les afficher.</BluesAutoOffNote>
 
 </LanguageData>

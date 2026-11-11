@@ -74,6 +74,30 @@ namespace Blues
             else disabledActivities.Remove(d.defName);
         }
 
+        /// <summary>Back to the documented defaults, the same ones ExposeData falls back on.</summary>
+        public static void ResetToDefaults()
+        {
+            joyDrainDownTo = 12;
+            maxRecTrigger = 19;
+            maxRecAutoTrigger = 15;
+            loverNeedLove = 10;
+            needFriendship = 6;
+            loverCarryToPlay = 2;
+            loverCarryToBed = 3;
+            enableMenus = true;
+            enableAuto = true;
+            scheduleJoy = true;
+            scheduleAll = true;
+            groupJoysPerDay = 3;
+            hourlyToggles = Enumerable.Repeat(true, 24).ToList();
+            requireProximity = 2;
+            roomPickiness = 5;
+            respectAreas = true;
+            extendBuildings = true;
+            enableActivityMenu = true;
+            disabledActivities = new List<string>();
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -146,7 +170,7 @@ namespace Blues
         private Vector2 scroll;
 
         // Content height of the settings window, taller than most screens' window: it scrolls.
-        private const float SettingsHeight = 820f;
+        private const float SettingsHeight = 870f;
 
         public override string SettingsCategory() { return "BluesJoyMain".Translate(); }
 
@@ -193,8 +217,15 @@ namespace Blues
             listing.Begin(viewRect);
             listing.Gap(12f);
 
+            // Applies on closing the window, for the current game and every later one (settings are global).
+            SplitRow(listing, 30f, out Rect left, out Rect right);
+            if (Widgets.ButtonText(right, "BluesResetDefaults".Translate()))
+                JoyousSet.ResetToDefaults();
+            TooltipHandler.TipRegion(right, "BluesResetDefaultsDesc".Translate());
+            listing.Gap(6f);
+
             // --- Row 1: Menus | Drain ---
-            SplitRow(listing, 60f, out Rect left, out Rect right);
+            SplitRow(listing, 60f, out left, out right);
             Widgets.CheckboxLabeled(left.TopPart(0.5f), "BluesEnableMenus".Translate(), ref JoyousSet.enableMenus, placeCheckboxNearText: true);
 
             TaggedString drainage = JoyousSet.joyDrainDownTo == 20 ? "BluesDontDrain".Translate() : "BluesJoyDrainTo".Translate(JoyousSet.joyDrainDownTo * 5);
@@ -270,7 +301,7 @@ namespace Blues
                         if (Input.GetMouseButton(0)) JoyousSet.hourlyToggles[i] = true;
                         else if (Input.GetMouseButton(1)) JoyousSet.hourlyToggles[i] = false;
                     }
-                    TooltipHandler.TipRegion(hourRect, $"Hour {i} to {i + 1}");
+                    TooltipHandler.TipRegion(hourRect, "BluesHourTip".Translate(i, i + 1));
                 }
                 listing.Gap(6f);
 
@@ -294,6 +325,14 @@ namespace Blues
 
                 TaggedString carryBed = JoyousSet.loverCarryToBed == 0 ? "BluesLoverCarryBedOff".Translate() : "BluesLoverCarryBed".Translate(JoyousSet.loverCarryToBed * 10);
                 LabeledSlider(right, carryBed, "BluesLoverCarryBedDesc", ref JoyousSet.loverCarryToBed, 0, 10);
+            }
+            else
+            {
+                // The controls below depend on this switch: say why they are not shown.
+                Rect noteRect = listing.GetRect(Text.LineHeight * 2f);
+                GUI.color = Color.gray;
+                Widgets.Label(noteRect, "BluesAutoOffNote".Translate());
+                GUI.color = Color.white;
             }
             listing.End();
             Widgets.EndScrollView();
