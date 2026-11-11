@@ -25,6 +25,7 @@ remaining:
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
   - "2026-11-11: unverified: settings in game (first use, effect of each option, persistence over restart and save reload, MainButton shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs), settings scenarios to write at writeTests; Settings audit section"
   - "2026-11-09: defect: French DefInjected missing for the Blues defs (incl. MainButtonDef Blues_SharedJoysSettings label and description) and a keyed token mismatch on BluesCarryLoverTo (Check-Translations)"
+  - "2026-11-11: to do at localize (rule 6.g, owner 2026-11-11): once the French is written (DefInjected, BluesCarryLoverTo), set translation_fr: pending_review, run /review-translation, apply what is justified, then ask Virginie to validate; no review run yet"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
 protocols_read_sha: f859f6aa73ec1ba363ea978072047685f77d77a9
