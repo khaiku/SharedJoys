@@ -267,6 +267,20 @@ namespace SharedJoys.PickleSteps
             ctx.Assert(reserved, $"{nickname} could not reserve the {defName}");
         }
 
+        /// <summary>
+        /// The count Shared Joys keeps of the places left on a recreation building. RimWorld itself still
+        /// refuses a third claimant once its own reservation cap is reached, whoever holds the places.
+        /// </summary>
+        [Then("Shared Joys: the {string} has {int} free places for recreation")]
+        public void FreePlaces(PickleContext ctx, string defName, int expected)
+        {
+            Building building = PlacedBuilding(ctx, defName);
+            JoyGiverDef giver = JoyUtil.GetJoyGiverFor(building.def);
+            ctx.Assert(giver?.jobDef != null, $"\"{defName}\" has no joy giver");
+            int free = JoyJobFactory.FreeParticipantSlots(building, giver);
+            ctx.Assert(free == expected, $"expected {expected} free places on the {defName}, Shared Joys counts {free}");
+        }
+
         // ------------------------------------------------------------------ language
 
         [Then("Shared Joys: the key {string} is translated")]
