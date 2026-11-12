@@ -42,7 +42,9 @@ namespace Blues
             if (power != null && !power.PowerOn) return null;
 
             int cap = Mathf.Max(1, giver.jobDef.joyMaxParticipants);
-            if (!pawn.CanReserve(b, cap)) return null;
+            // stackCount 0, as the recreation job reserves (and as vanilla checks): with the default -1 any
+            // reservation already held on the board by a real player counts as a mismatch and refuses the next one.
+            if (!pawn.CanReserve(b, cap, 0)) return null;
 
             IntVec3 seat = FindSeat(pawn, b, taken, chairsOnly: true);
             if (!seat.IsValid) seat = FindSeat(pawn, b, taken, chairsOnly: false);
