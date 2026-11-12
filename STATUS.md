@@ -67,3 +67,12 @@ Stage code, 2026-11-09: 3.a no open `feature` for 1.0.0 (1.7 support and retirin
 - **Review (6.f):** `TRANSLATION_REVIEW.md` regenerated at a68f88b; ChatGPT `/review-translation` run eight times, 22 recommendations applied, the rest rejected for a stated reason (`[RECIPIENT_possessive]` kept out of the French `Blues_SweepOffFeet` log rule: the token renders "son" or "sa" and would give "sa pieds").
 - **Virginie review (6.g):** validated by Virginie on 2026-11-12, revision a68f88b, no correction asked. `PUBLICATION.md` does not exist yet (writeDocs).
 - **Unverified until playTests (6.h):** raw keys, fallback text, truncation of the French in game, French DefInjected resolving in game.
+
+## Tests (writeTests)
+
+2026-11-12, revision 103dc6b, `BluesSharedJoys.dll` sha256 a1d41446bc3c...
+- **7.a Scenarios:** 14 Pickle scenarios in 4 features (`Tests/Pickle/README.md` lists each behaviour); the promised behaviours of `PUBLICATION.md` cannot be matched, the file is written at writeDocs.
+- **7.b Automated tests:** no unit-test project (`Run-UnitTests.ps1`: n/a); reason: the logic is Harmony patches and game state, only provable in game, hence Pickle. Shared checks replayed now: Check-Translations PASS, Check-DefInjected 0 error, Check-Steps green (18 patterns, 94 lines), `dotnet build` Release green; Check-ModBasics reports only the `nelim.` prefix, kept on purpose (owner, 2026-11-09). Scripts kept in the mod: none.
+- **7.c XML tests:** n/a, no XML patch; the Defs are checked by Check-DefInjected and Check-Translations.
+- **7.d Pickle suites written, not run:** 6 new scenarios (graves x2, television reason, full table, foreign reservation, chair beside, French x2 features); `@requires`: none besides Royalty (companion About.xml). Not covered on purpose: settings window, activity menu clicks, lovers carrying each other, other placeless activities, meditation refusal with no room.
+- **7.e/7.f:** the tested sha is the one above; a code commit reopens 7.b.

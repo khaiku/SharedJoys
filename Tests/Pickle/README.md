@@ -12,13 +12,12 @@ end in (`JoyUtil.TryAssignSharedJoy`, `PlacelessActivities.TryStart`).
 
 | Feature | Behaviour | Evidence |
 |---|---|---|
-| `01-extended-buildings` | two sculptures take two colonists, each on a piece of their own; one sculpture for two is refused with `BluesArtAllTaken`; the setting off refuses art; two colonists meditate around one spot | job of each colonist, reason text |
-| `02-seating` | a chess table with no chair is played on the ground | job of each colonist |
+| `01-extended-buildings` | two sculptures take two colonists, each on a piece of their own; one sculpture for two is refused with `BluesArtAllTaken`; two graves take two colonists, one grave for two is refused with `BluesGraveAllTaken`; the setting off refuses art; two colonists meditate around one spot | job of each colonist, reason text |
+| `02-seating` | a chess table with no chair is played on the ground; with a chair beside it, played; a reservation held for another job takes no place; a full table refuses a second pair with `BluesSeatsOnly` and its count; a television with no chair is refused with `BluesNeedsChairToWatch` | job of each colonist, reason text |
 | `03-activities` | two colonists go for a walk together through the placeless activity list | same job for both |
+| `04-french` | the French labels of the interactions and the translated keys resolve in game (played with `-Language French`, filter `04-french`) | label text, key lookup |
 
-Not covered by a scenario yet: graves (need a corpse in a grave), the `FreeParticipantSlots` fix (a hauler
-holding a reservation on the table), the `IsValidChair` fix, the settings window, the French pass. Those are
-`unverified` in `STATUS.md`, not passed.
+Not covered by a scenario, on purpose: the settings window and the activity menu entries (float menus and a settings dialog need a mouse, not scriptable here), lovers carrying each other, the other placeless activities, the meditation refusal with no room. They stay `unverified` in `STATUS.md`, not passed. Scenarios written 2026-11-12 for graves, the foreign reservation (`FreeParticipantSlots`), the chair beside a table (`IsValidChair`), the television and full-table reasons and the French pass have never run.
 
 ## Layout
 

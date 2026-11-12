@@ -31,6 +31,7 @@ namespace SharedJoys.PickleSteps
             public readonly Dictionary<string, Thing> Things = new Dictionary<string, Thing>();
             public bool? Invited;
             public string Reason;
+            public Thing Last;
             public bool? ExtendBefore;
         }
 
@@ -106,6 +107,7 @@ namespace SharedJoys.PickleSteps
             string key = defName;
             for (int i = 2; stage.Things.ContainsKey(key); i++) key = defName + "#" + i;
             stage.Things[key] = thing;
+            stage.Last = thing;
         }
 
         // ------------------------------------------------------------------ invitations
@@ -158,6 +160,20 @@ namespace SharedJoys.PickleSteps
             ctx.Assert(text == expected, $"the reason was \"{text}\", expected \"{expected}\" ({key})");
         }
 
+        /// <summary>
+        /// Same as the reason step, for the messages that carry the number of places as a second
+        /// argument (BluesSeatsOnly).
+        /// </summary>
+        [Then("Shared Joys: the reason given for the {string} is the message {string} with {int} places")]
+        public void ReasonIsWithPlaces(PickleContext ctx, string defName, string key, int places)
+        {
+            Building building = PlacedBuilding(ctx, defName);
+            string text = StageOf(ctx).Reason;
+            ctx.Assert(text != null, "no diagnosis was worked out on the tick of the invitation: Shared Joys would show its generic text");
+            string expected = key.Translate(building.LabelShort, places).ToString();
+            ctx.Assert(text == expected, $"the reason was \"{text}\", expected \"{expected}\" ({key})");
+        }
+
         [Then("Shared Joys: the {string} is refused as a recreation building")]
         public void Refused(PickleContext ctx, string defName)
         {
@@ -205,6 +221,60 @@ namespace SharedJoys.PickleSteps
             ctx.Assert(a != null && b != null, "someone has no job");
             ctx.Assert(a.targetA != b.targetA || a.targetA.IsValid && a.targetB.IsValid && a.targetB != b.targetB,
                 $"both colonists aim at the same target: {a.targetA}");
+        }
+
+        // ------------------------------------------------------------------ graves and reservations
+
+        /// <summary>
+        /// A grave next to the colonist, holding the body of a colonist of the player's faction: what
+        /// Shared Joys needs to take it as a place to pay respects (see IsVisitableGrave).
+        /// </summary>
+        [Given("Shared Joys: a grave holding a dead colonist stands next to {string}")]
+        public void GraveWithBody(PickleContext ctx, string nickname)
+        {
+            PlaceNextTo(ctx, "Grave", nickname);
+            Building_Grave grave = StageOf(ctx).Last as Building_Grave;
+            ctx.Assert(grave != null, "the placed \"Grave\" is not a Building_Grave");
+
+            Pawn dead = PawnGenerator.GeneratePawn(PawnKindDefOf.Colonist, Faction.OfPlayer);
+            GenSpawn.Spawn(dead, grave.Position, grave.Map);
+            dead.Kill(null);
+            Corpse corpse = dead.Corpse;
+            ctx.Assert(corpse != null, "the colonist left no corpse");
+            ctx.Assert(grave.TryAcceptThing(corpse, false), "the grave did not take the corpse");
+            ctx.Assert(grave.HasCorpse, "the grave holds no corpse");
+        }
+
+        /// <summary>
+        /// A colonist holds a reservation on a building for a job that is not recreation, the way a
+        /// hauler or a cleaner passing through does. Shared Joys used to count it as a participant
+        /// and refuse a pair for want of room (FreeParticipantSlots).
+        /// </summary>
+        [Given("Shared Joys: {string} holds a reservation on the {string} for another job")]
+        public void ForeignReservation(PickleContext ctx, string nickname, string defName)
+        {
+            Pawn holder = Colonist(ctx, nickname);
+            Building building = PlacedBuilding(ctx, defName);
+            Job other = JobMaker.MakeJob(JobDefOf.Wait, building);
+            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, 4, -1, null, false);
+            ctx.Assert(reserved, $"{nickname} could not reserve the {defName}");
+        }
+
+        // ------------------------------------------------------------------ language
+
+        [Then("Shared Joys: the key {string} is translated")]
+        public void KeyTranslated(PickleContext ctx, string key)
+        {
+            ctx.Assert(key.CanTranslate(), $"the key \"{key}\" has no translation in the loaded language");
+            ctx.Assert(key.Translate().ToString() != key, $"the key \"{key}\" shows as itself");
+        }
+
+        [Then("Shared Joys: the interaction {string} is labelled {string}")]
+        public void InteractionLabel(PickleContext ctx, string defName, string label)
+        {
+            InteractionDef def = DefDatabase<InteractionDef>.GetNamedSilentFail(defName);
+            ctx.Assert(def != null, $"no InteractionDef named \"{defName}\"");
+            ctx.Assert(def.label == label, $"\"{defName}\" is labelled \"{def.label}\", expected \"{label}\"");
         }
 
         // ------------------------------------------------------------------ settings

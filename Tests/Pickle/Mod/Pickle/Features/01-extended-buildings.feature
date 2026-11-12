@@ -50,3 +50,21 @@ Feature: art and meditation as shared recreation
     And Shared Joys: "Ada" and "Bo" are doing the job "Meditate"
     And Shared Joys: "Ada" and "Bo" stand on different targets
     And no errors were logged
+
+  # A grave is reserved for one pawn like an artwork: a group spreads over neighbouring graves.
+  @timeout:600
+  Scenario: two graves take two colonists
+    Given Shared Joys: a grave holding a dead colonist stands next to "Ada"
+    And Shared Joys: a grave holding a dead colonist stands next to "Ada"
+    When Shared Joys: "Ada" invites "Bo" to the "Grave"
+    Then Shared Joys: the invitation succeeded
+    And Shared Joys: "Ada" and "Bo" are doing the job "VisitGrave"
+    And Shared Joys: "Ada" and "Bo" stand on different targets
+    And no errors were logged
+
+  @timeout:600
+  Scenario: one grave for two colonists is refused with its own reason
+    Given Shared Joys: a grave holding a dead colonist stands next to "Ada"
+    When Shared Joys: "Ada" invites "Bo" to the "Grave"
+    Then Shared Joys: the invitation failed
+    And Shared Joys: the reason given for the "Grave" is the message "BluesGraveAllTaken"
