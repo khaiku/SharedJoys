@@ -99,7 +99,7 @@
   <BluesGraveAllTaken>Une seule personne peut se recueillir devant {0} à la fois. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>Aucune place libre pour s'asseoir et méditer autour de {0}.</BluesNoMeditationSpot>
   <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, sur une chaise ou au sol.</BluesNoSpotBeside>
-  <BluesNeedsChairToWatch>{0} nécessite une chaise libre pour regarder, une par spectateur.</BluesNeedsChairToWatch>
+  <BluesNeedsChairToWatch>{0} ne peut être regardé que depuis une chaise libre, à raison d'une chaise par spectateur.</BluesNeedsChairToWatch>
   <BluesSeatsOnly>Capacité de {0} : {1}. Les autres ont besoin de leur propre exemplaire, ou d'une autre activité.</BluesSeatsOnly>
 
   <BluesAct_Meditate>Méditer</BluesAct_Meditate>
@@ -122,6 +122,6 @@
   <BluesResetDefaults>Rétablir les valeurs par défaut</BluesResetDefaults>
   <BluesResetDefaultsDesc>Remet chaque réglage de Shared Joys à sa valeur par défaut.\nLes réglages sont globaux : le changement s'applique à la partie en cours et à toutes les autres une fois cette fenêtre fermée.</BluesResetDefaultsDesc>
   <BluesHourTip>De {0} h à {1} h</BluesHourTip>
-  <BluesAutoOffNote>Les événements de groupe autonomes sont désactivés : les réglages qui les concernent (heures, événements par jour, portée, exigence sur la pièce, zones, colons qui se portent) sont masqués. Réactiver l'interrupteur ci-dessus pour les afficher.</BluesAutoOffNote>
+  <BluesAutoOffNote>Les événements de groupe autonomes sont désactivés : les réglages qui les concernent (heures, événements par jour, portée, exigence sur la pièce, zones, transport mutuel des amoureux) sont masqués. Réactiver l'interrupteur ci-dessus pour les afficher.</BluesAutoOffNote>
 
 </LanguageData>
