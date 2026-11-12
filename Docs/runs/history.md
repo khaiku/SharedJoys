@@ -9,3 +9,4 @@ One line per run: date, ticket, tested revision, result. Evidence stays on disk 
 - 2026-11-12 ticket 20261112-143719-928-6639 at d26075e (reservation scenario alone): RED, same message; cause is in the mod, GroundSeating.CanReserve used stackCount -1 against the recreation reservations (stackCount 0).
 - 2026-11-12 ticket 20261112-154005-013-6eee at 4be456d (02-seating, after the GroundSeating fix): RED 4 of 5; only the foreign-reservation scenario fails, same message.
 - 2026-11-12 ticket 20261112-180034-111-ad16 at 2dfc611: RED; Ada gets no job because Bo cannot join: Cy Wait reservation (max2 stack0) plus Ada fills the RimWorld cap of 2. Scenario rewritten to check the free-place count.
+- 2026-11-12 ticket 20261112-180450-703-ee35 at 1901dec (foreign reservation, free-place count): GREEN 1 of 1.
