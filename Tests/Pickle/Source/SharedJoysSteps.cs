@@ -32,6 +32,7 @@ namespace SharedJoys.PickleSteps
             public bool? Invited;
             public string Reason;
             public Thing Last;
+            public string Detail = "";
             public bool? ExtendBefore;
         }
 
@@ -126,6 +127,7 @@ namespace SharedJoys.PickleSteps
                 $"Shared Joys does not accept \"{defName}\" as a recreation building");
             Stage stage = StageOf(ctx);
             stage.Invited = JoyUtil.TryAssignSharedJoy(inviter, invitee, building);
+            stage.Detail = " [" + inviter.LabelShort + " job=" + (inviter.CurJob?.def.defName ?? "none") + "; " + invitee.LabelShort + " job=" + (invitee.CurJob?.def.defName ?? "none") + "; reservations on the building: " + string.Join(", ", building.Map.reservationManager.ReservationsReadOnly.Where(r => r.Target.Thing == building).Select(r => (r.Claimant?.LabelShort ?? "?") + ":" + (r.Job?.def.defName ?? "?") + ":max" + r.MaxPawns + ":stack" + r.StackCount)) + "]";
 
             // The float menu calls Notify right after a failed assignment, on the same tick, and the
             // diagnosis only replaces the generic text on that tick. Read it here, not in a later step.
@@ -136,7 +138,8 @@ namespace SharedJoys.PickleSteps
         [Then("Shared Joys: the invitation succeeded")]
         public void InvitationSucceeded(PickleContext ctx)
         {
-            ctx.Assert(StageOf(ctx).Invited == true, "the invitation failed, or none was made");
+            Stage st = StageOf(ctx);
+            ctx.Assert(st.Invited == true, "the invitation failed, or none was made" + st.Detail);
         }
 
         [Then("Shared Joys: the invitation failed")]
