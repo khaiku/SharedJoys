@@ -260,7 +260,7 @@ namespace SharedJoys.PickleSteps
             // RimWorld lets reservations share a target only when their maxPawns and stackCount match, so the
             // hauler reserves with the participant cap the recreation itself uses.
             int cap = JoyUtil.GetJoyGiverFor(building.def)?.jobDef.joyMaxParticipants ?? 1;
-            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, cap, 1, null, false);
+            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, cap, 0, null, false);
             ctx.Assert(reserved, $"{nickname} could not reserve the {defName}");
         }
 
