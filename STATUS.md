@@ -27,7 +27,7 @@ remaining:
   - "2026-11-11: unverified: settings in game (first use, effect of each option, persistence over restart and save reload, MainButton shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs), settings scenarios to write at writeTests; Settings audit section"
   - "2026-11-12: /review-translation run twice (ChatGPT page 1 of 1 each), applied: 9 French labels and descriptions, 3 English fixes, 4 more French fixes (partner wording, BluesAlreadySatisfied, BluesEnableAutoDesc, BluesNoSpotBeside), DefInjected added; PUBLICATION.md not written yet; French validated by Virginie 2026-11-12 (6.g); not run in game (unverified)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
-  - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
+  - "2026-11-09: feature: retire SharedJoysPlus (Workshop page, USE_THIS_INSTEAD.md) once this release is published; the local folder was deleted 2026-11-12 on the owner's word (no remote, 4 local commits lost; its README and Art images were not ported)"
 protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511
 updated: 2026-11-12
 ---
