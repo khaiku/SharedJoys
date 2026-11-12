@@ -10,3 +10,4 @@ One line per run: date, ticket, tested revision, result. Evidence stays on disk 
 - 2026-11-12 ticket 20261112-154005-013-6eee at 4be456d (02-seating, after the GroundSeating fix): RED 4 of 5; only the foreign-reservation scenario fails, same message.
 - 2026-11-12 ticket 20261112-180034-111-ad16 at 2dfc611: RED; Ada gets no job because Bo cannot join: Cy Wait reservation (max2 stack0) plus Ada fills the RimWorld cap of 2. Scenario rewritten to check the free-place count.
 - 2026-11-12 ticket 20261112-180450-703-ee35 at 1901dec (foreign reservation, free-place count): GREEN 1 of 1.
+- 2026-11-12 ticket 20261112-184649-623-6bfa at 1901dec (whole suite, 14 scenarios, run in English): 13 of 14 GREEN; the only failure is "the French interaction labels resolve", expected in an English run (04-french must be played with -Language French, GREEN on 5428). Folder deleted after reading.
