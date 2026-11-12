@@ -57,7 +57,7 @@
   <BluesLoverCarryBed>Les amoureux portent leur partenaire au lit : {0} %</BluesLoverCarryBed>
   <BluesLoverCarryBedOff>Les amoureux portent leur partenaire au lit : désactivé</BluesLoverCarryBedOff>
   <BluesLoverCarryPlayDesc>Probabilité qu'un colon porte l'autre jusqu'au lieu de détente au lieu d'y aller à pied.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions.</BluesLoverCarryPlayDesc>
-  <BluesLoverCarryBedDesc>Lorsqu'un colon se dirige vers le lit partagé avec l'autre, probabilité de faire demi-tour, d'aller chercher l'autre pour l'emporter jusqu'au lit. Tirée une fois par coucher et par colon.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions. Ne se déclenche jamais lorsque l'autre travaille, est déjà au lit ou que la colonie est en danger.</BluesLoverCarryBedDesc>
+  <BluesLoverCarryBedDesc>Lorsqu'un colon se dirige vers le lit qu'il partage avec l'autre, cette valeur définit la probabilité qu'il fasse demi-tour, aille chercher l'autre pour l'emporter jusqu'au lit. Tirée une fois par coucher et par colon.\nLa probabilité finale est cette valeur multipliée par la plus faible des deux opinions. Ne se déclenche jamais lorsque l'autre travaille, est déjà au lit ou que la colonie est en danger.</BluesLoverCarryBedDesc>
 
   <BluesScheduleJoy>Déclencher les événements de groupe pendant les heures « Loisir »</BluesScheduleJoy>
   <BluesScheduleJoyDesc>Les colons dont l'emploi du temps indique Loisir peuvent lancer ou rejoindre un événement autonome.</BluesScheduleJoyDesc>
@@ -76,7 +76,7 @@
 
   <BluesRoomPickiness>Exigence sur le lieu de détente : {0} %</BluesRoomPickiness>
   <BluesRoomPickinessOff>Exigence sur le lieu de détente : désactivée</BluesRoomPickinessOff>
-  <BluesRoomPickinessDesc>Poids de la pièce dans le choix du lieu de détente.\n0 % : n'importe quel endroit utilisable, au hasard. Plus haut : privilégie les salles de loisir, les pièces impressionnantes et l'extérieur par beau temps, et évite les chambres et les hôpitaux.\nLes prisons ne sont jamais utilisées.</BluesRoomPickinessDesc>
+  <BluesRoomPickinessDesc>Poids de la pièce dans le choix du lieu de détente.\n0 % : n'importe quel endroit utilisable, au hasard. Valeur plus élevée : privilégie les salles de loisir, les pièces impressionnantes et l'extérieur par beau temps, et évite les chambres et les hôpitaux.\nLes prisons ne sont jamais utilisées.</BluesRoomPickinessDesc>
 
   <BluesRespectAreas>Respecter les zones autorisées</BluesRespectAreas>
   <BluesRespectAreasDesc>Les événements autonomes n'enverront pas un colon hors de sa zone autorisée.\nLes invitations manuelles ignorent cette restriction.</BluesRespectAreasDesc>

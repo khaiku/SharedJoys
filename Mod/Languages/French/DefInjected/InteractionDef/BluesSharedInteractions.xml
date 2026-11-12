@@ -10,6 +10,6 @@
   <Blues_GroupHangout.logRulesInitiator.rulesStrings.2>r_logentry->[INITIATOR_nameDef] a organisé une pause commune avec [RECIPIENT_nameDef].</Blues_GroupHangout.logRulesInitiator.rulesStrings.2>
   <Blues_SweepOffFeet.label>Transport dans les bras</Blues_SweepOffFeet.label>
   <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.0>r_logentry->[INITIATOR_nameDef] a pris [RECIPIENT_nameDef] dans ses bras, le cœur léger.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.0>
-  <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a enlevé [RECIPIENT_nameDef] pour un moment romantique.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>
+  <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>r_logentry->[INITIATOR_nameDef] a emmené [RECIPIENT_nameDef] pour un moment romantique.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.1>
   <Blues_SweepOffFeet.logRulesInitiator.rulesStrings.2>r_logentry->[INITIATOR_nameDef] a porté [RECIPIENT_nameDef] avec tendresse pour aller se détendre.</Blues_SweepOffFeet.logRulesInitiator.rulesStrings.2>
 </LanguageData>
