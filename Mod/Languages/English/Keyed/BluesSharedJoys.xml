@@ -79,7 +79,7 @@
   <BluesArtAllTaken>Only one colonist can admire {0} at a time. A group needs one artwork each, in the same room.</BluesArtAllTaken>
   <BluesGraveAllTaken>Only one colonist can pay respects at {0} at a time. A group needs one grave each, close together.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>No free spot to sit and meditate around {0}.</BluesNoMeditationSpot>
-  <BluesNoSpotBeside>No free spot left beside {0} to sit down, chair or bare ground.</BluesNoSpotBeside>
+  <BluesNoSpotBeside>No free spot left beside {0} to sit down, whether on a chair or on the bare ground.</BluesNoSpotBeside>
   <BluesNeedsChairToWatch>{0} needs a free chair to watch from - one per viewer.</BluesNeedsChairToWatch>
   <BluesSeatsOnly>{0} only takes {1} at a time. The others need one of their own, or another activity.</BluesSeatsOnly>
 
