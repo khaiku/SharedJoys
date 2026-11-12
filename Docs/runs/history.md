@@ -7,3 +7,4 @@ One line per run: date, ticket, tested revision, result. Evidence stays on disk 
 - 2026-11-12 ticket 20261112-140851-695-8e80 at 63a6e36 (the 3 failed): RED 0 of 3; test steps still wrong (corpse still spawned, reservation maxPawns mismatch).
 - 2026-11-12 ticket 20261112-141906-117-17e3 at 6a42a90 (the 3 failed): graves x2 GREEN, reservation RED (test step reserved with stackCount 1, the play job uses 0).
 - 2026-11-12 ticket 20261112-143719-928-6639 at d26075e (reservation scenario alone): RED, same message; cause is in the mod, GroundSeating.CanReserve used stackCount -1 against the recreation reservations (stackCount 0).
+- 2026-11-12 ticket 20261112-154005-013-6eee at 4be456d (02-seating, after the GroundSeating fix): RED 4 of 5; only the foreign-reservation scenario fails, same message.
