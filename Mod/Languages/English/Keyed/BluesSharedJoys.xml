@@ -33,10 +33,10 @@
 	<BluesNeedLove>Minimum Romance to "Sweep off feet": {0}</BluesNeedLove>
 	<BluesNeedLoveDesc>Both lovers must like each other at least this much before one can carry the other. Applies to manual orders and autonomous carries.</BluesNeedLoveDesc>
 
-	<BluesLoverCarryPlay>Lovers sweep each other off to hangouts: {0}%</BluesLoverCarryPlay>
-	<BluesLoverCarryPlayOff>Lovers sweep each other off to hangouts: off</BluesLoverCarryPlayOff>
-	<BluesLoverCarryBed>Lovers sweep each other off to bed: {0}%</BluesLoverCarryBed>
-	<BluesLoverCarryBedOff>Lovers sweep each other off to bed: off</BluesLoverCarryBedOff>
+	<BluesLoverCarryPlay>Lovers sweep each other off their feet to hangouts: {0}%</BluesLoverCarryPlay>
+	<BluesLoverCarryPlayOff>Lovers sweep each other off their feet to hangouts: off</BluesLoverCarryPlayOff>
+	<BluesLoverCarryBed>Lovers sweep each other off their feet to bed: {0}%</BluesLoverCarryBed>
+	<BluesLoverCarryBedOff>Lovers sweep each other off their feet to bed: off</BluesLoverCarryBedOff>
 	<BluesLoverCarryPlayDesc>The chance that a colonist carries their lover to hang out instead of walking.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other.</BluesLoverCarryPlayDesc>
 	<BluesLoverCarryBedDesc>When a colonist heads to a bed they share with their lover, this is the chance they turn around, fetch the lover and carry them to bed too. Rolled once per bedtime, per colonist.\nThe final chance is this value multiplied by the lower of the two lovers' opinions of each other. Never fires while the lover is on work hours, already in bed, or the colony is in danger.</BluesLoverCarryBedDesc>
 	

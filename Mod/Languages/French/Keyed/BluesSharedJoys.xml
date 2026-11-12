@@ -24,7 +24,7 @@
 
   <!-- Les six refus. C'est celui-ci, BluesNoRoomForJoy, qui s'affichait en anglais en pleine
        partie française et qui a lancé toute cette recherche. -->
-  <BluesAlreadySatisfied>{0} est déjà en train de se divertir.</BluesAlreadySatisfied>
+  <BluesAlreadySatisfied>{0} n'a plus besoin de se divertir.</BluesAlreadySatisfied>
   <BluesNotEnoughLove>{0} et {1} n'en sont pas encore là.</BluesNotEnoughLove>
   <BluesNotEnoughFren>{0} et {1} ne sont pas assez proches.</BluesNotEnoughFren>
   <BluesNoJoySpot>Ce n'est pas un endroit où l'on s'amuse.</BluesNoJoySpot>
@@ -79,7 +79,7 @@
   <BluesRoomPickinessDesc>Poids de la pièce dans le choix du lieu de détente.\n0 % : n'importe quel endroit utilisable, au hasard. Plus haut : privilégie les salles de loisir, les pièces impressionnantes et l'extérieur par beau temps, et évite les chambres et les hôpitaux.\nLes prisons ne sont jamais utilisées.</BluesRoomPickinessDesc>
 
   <BluesRespectAreas>Respecter les zones autorisées</BluesRespectAreas>
-  <BluesRespectAreasDesc>Les événements autonomes n'enverront pas un colon hors de sa zone autorisée.\nLes invitations manuelles l'ignorent.</BluesRespectAreasDesc>
+  <BluesRespectAreasDesc>Les événements autonomes n'enverront pas un colon hors de sa zone autorisée.\nLes invitations manuelles ignorent cette restriction.</BluesRespectAreasDesc>
 
   <!-- Extensions: art, graves, meditation, placeless activities, diagnosis -->
 <BluesExtendBuildings>Étendre les invitations aux bâtiments</BluesExtendBuildings>
@@ -99,7 +99,7 @@
   <BluesGraveAllTaken>Une seule personne peut se recueillir devant {0} à la fois. Il faut une tombe par participant, toutes proches les unes des autres.</BluesGraveAllTaken>
   <BluesNoMeditationSpot>Aucune place libre pour s'asseoir et méditer autour de {0}.</BluesNoMeditationSpot>
   <BluesNoSpotBeside>Plus aucune place libre à côté de {0} pour s'asseoir, sur une chaise ou au sol.</BluesNoSpotBeside>
-  <BluesNeedsChairToWatch>{0} demande une chaise libre pour s'y asseoir, une par spectateur.</BluesNeedsChairToWatch>
+  <BluesNeedsChairToWatch>{0} nécessite une chaise libre pour regarder, une par spectateur.</BluesNeedsChairToWatch>
   <BluesSeatsOnly>Capacité de {0} : {1}. Les autres ont besoin de leur propre exemplaire, ou d'une autre activité.</BluesSeatsOnly>
 
   <BluesAct_Meditate>Méditer</BluesAct_Meditate>
