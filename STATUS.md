@@ -5,14 +5,14 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: localize[1.0.0]
+workflow_stage: writeTests[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
 settings_audit: partial
-localization: unchecked
-translation_en: unchecked
-translation_fr: partial
+localization: complete
+translation_en: complete
+translation_fr: complete
 dependencies: none - no mod is required or referenced (no modDependencies, no MayRequire, no patches, no LoadFolders.xml, no OptionalCompat.xml: Check-OptionalCompat 0 targets, 0 declared); loadAfter Ludeon.RimWorld only; DLC are optional and guarded in code (ModsConfig.RoyaltyActive in ExtendedBuildingJoy.cs, ModsConfig.IdeologyActive in ExtendedBuildingJoy.cs); supportedVersions 1.6; re-read against the sources and About.xml 2026-11-11 at 4878c19
 workshop_required_items: n/a, no mandatory Workshop dependency (About.xml has no modDependencies)
 workshop: none
@@ -24,12 +24,11 @@ remaining:
   - "2026-11-09: unverified: Pickle suite written (3 features, 6 scenarios, Tests/Pickle), Check-Steps green, played once (4 of 6 green); graves, FreeParticipantSlots fix, IsValidChair fix, settings window and French pass have no scenario"
   - "2026-11-09: defect: 'Not enough space for everyone' on invitation, reported by two users (2026-10-28, 2026-11-09), not reproduced; FreeParticipantSlots fix is the main suspect"
   - "2026-11-11: unverified: settings in game (first use, effect of each option, persistence over restart and save reload, MainButton shortcut hidden on a clean config, RIMMSQOL listing and reveal, logs), settings scenarios to write at writeTests; Settings audit section"
-  - "2026-11-12: French written: DefInjected for every Blues def (InteractionDef with log rules, ThoughtDef, JobDef, MainButtonDef), 0 coverage finding; Check-Translations PASS (Audit fixed the BluesAct_* false positives 2026-11-12); BluesCarryLoverTo token mismatch removed by dropping the English objective pronoun (EN: Sweep {0} off their feet to..., code passes one argument)"
-  - "2026-11-12: /review-translation run twice (ChatGPT page 1 of 1 each), applied: 9 French labels and descriptions, 3 English fixes, 4 more French fixes (partner wording, BluesAlreadySatisfied, BluesEnableAutoDesc, BluesNoSpotBeside), DefInjected added; PUBLICATION.md not written yet; waits for Virginie validation of the French (6.g), then translation_fr complete; not run in game (unverified)"
+  - "2026-11-12: /review-translation run twice (ChatGPT page 1 of 1 each), applied: 9 French labels and descriptions, 3 English fixes, 4 more French fixes (partner wording, BluesAlreadySatisfied, BluesEnableAutoDesc, BluesNoSpotBeside), DefInjected added; PUBLICATION.md not written yet; French validated by Virginie 2026-11-12 (6.g); not run in game (unverified)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: b04475c28fcbf27bd47f4ee877f08147e180efb9
-updated: 2026-11-11
+protocols_read_sha: 344cc1ece120f739fba6da984e6ce4fd971486d7
+updated: 2026-11-12
 ---
 
 # Shared Joys: status
@@ -59,3 +58,12 @@ Decision, owner, 2026-11-09: 2.e (palette check of the source illustration) waiv
 - **Result (5.g):** `settings_audit: partial`.
 
 Stage code, 2026-11-09: 3.a no open `feature` for 1.0.0 (1.7 support and retiring SharedJoysPlus come after the 1.6 playTests and the publication); 3.b `dotnet build` Release green, `Mod/Assemblies/BluesSharedJoys.dll` sha256 identical after rebuild; 3.c `CHANGELOG.md` `[Unreleased]` states the changes.
+
+## Translation audit
+
+- **Inventory (6.a, 6.b):** every displayed text comes from Keyed (English and French, 103 keys), Defs (InteractionDef, ThoughtDef, JobDef, MainButtonDef, French DefInjected with log rules) or the activity list (`BluesAct_` + defName, built in `PlacelessActivities.cs`). A bounded read of `Source/*.cs` finds no hard-coded UI string.
+- **Coverage (6.c):** Check-Translations PASS (0 finding), Check-DefInjected 0 error over 22 keys, 0 key missing against English.
+- **French agreement (6.d):** epicene wording (no gendered participle, "l'autre", "partenaire", "mon amour"), no tu, no vous; no player choice needed (6.e not applicable).
+- **Review (6.f):** `TRANSLATION_REVIEW.md` regenerated at a68f88b; ChatGPT `/review-translation` run eight times, 22 recommendations applied, the rest rejected for a stated reason (`[RECIPIENT_possessive]` kept out of the French `Blues_SweepOffFeet` log rule: the token renders "son" or "sa" and would give "sa pieds").
+- **Virginie review (6.g):** validated by Virginie on 2026-11-12, revision a68f88b, no correction asked. `PUBLICATION.md` does not exist yet (writeDocs).
+- **Unverified until playTests (6.h):** raw keys, fallback text, truncation of the French in game, French DefInjected resolving in game.
