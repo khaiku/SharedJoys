@@ -241,6 +241,7 @@ namespace SharedJoys.PickleSteps
             dead.Kill(null);
             Corpse corpse = dead.Corpse;
             ctx.Assert(corpse != null, "the colonist left no corpse");
+            if (corpse.Spawned) corpse.DeSpawn();
             ctx.Assert(grave.TryAcceptThing(corpse, false), "the grave did not take the corpse");
             ctx.Assert(grave.HasCorpse, "the grave holds no corpse: held=" + string.Join(",", grave.GetDirectlyHeldThings().Select(t => t.GetType().Name + (t.Destroyed ? "(destroyed)" : ""))) + " corpseDestroyed=" + corpse.Destroyed + " corpseHolder=" + (corpse.holdingOwner?.Owner?.ToString() ?? "none"));
         }
@@ -256,7 +257,10 @@ namespace SharedJoys.PickleSteps
             Pawn holder = Colonist(ctx, nickname);
             Building building = PlacedBuilding(ctx, defName);
             Job other = JobMaker.MakeJob(JobDefOf.Wait, building);
-            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, 4, 1, null, false);
+            // RimWorld lets reservations share a target only when their maxPawns and stackCount match, so the
+            // hauler reserves with the participant cap the recreation itself uses.
+            int cap = JoyUtil.GetJoyGiverFor(building.def)?.jobDef.joyMaxParticipants ?? 1;
+            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, cap, 1, null, false);
             ctx.Assert(reserved, $"{nickname} could not reserve the {defName}");
         }
 
