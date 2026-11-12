@@ -5,7 +5,7 @@ repo: SharedJoys
 remote: https://github.com/khaiku/SharedJoys.git
 visibility: public
 detached: yes
-workflow_stage: writeTests[1.0.0]
+workflow_stage: playTests[1.0.0]
 licence: open
 licence_at: "2026-11-09: MIT, LICENSE added to the repository with Blues' agreement; Blues stays the copyright holder with contributors"
 upstream_mod_remotes: N/A
@@ -27,7 +27,7 @@ remaining:
   - "2026-11-12: /review-translation run twice (ChatGPT page 1 of 1 each), applied: 9 French labels and descriptions, 3 English fixes, 4 more French fixes (partner wording, BluesAlreadySatisfied, BluesEnableAutoDesc, BluesNoSpotBeside), DefInjected added; PUBLICATION.md not written yet; French validated by Virginie 2026-11-12 (6.g); not run in game (unverified)"
   - "2026-11-09: feature: RimWorld 1.7 support asked (2026-10-27)"
   - "2026-11-09: feature: retire SharedJoysPlus (Workshop, repository, USE_THIS_INSTEAD.md) once this release is published"
-protocols_read_sha: 344cc1ece120f739fba6da984e6ce4fd971486d7
+protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511
 updated: 2026-11-12
 ---
 
