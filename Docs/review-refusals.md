@@ -8,3 +8,4 @@ ChatGPT suggestions refused, one line each: key or text, proposal, reason, date.
 - `BluesActiveHoursDesc` (French): "Cliquer avec le bouton gauche sur une heure ...": "Clic gauche ..." is already clear and does not address the player; matter of taste. Refused 2026-11-12.
 - `BluesExtendBuildingsDesc` (English): "that no JoyGiverDef explicitly lists": "which no JoyGiverDef lists by name" is already correct; matter of taste. Refused 2026-11-12.
 - `BluesCarryLoverTo` (French): keep two placeholders `{0}` and `{1}`: `{1}` was an English objective pronoun misused as a possessive ("off him feet"); the token is gone from English and French (one argument). Refused 2026-11-12.
+- `BluesSeatsOnly` (French): "Les autres ont besoin du leur": an earlier review flagged "du leur" as an ambiguous possessive and proposed "de leur propre exemplaire", which is kept; matter of taste. Refused 2026-11-12.
