@@ -242,7 +242,7 @@ namespace SharedJoys.PickleSteps
             Corpse corpse = dead.Corpse;
             ctx.Assert(corpse != null, "the colonist left no corpse");
             ctx.Assert(grave.TryAcceptThing(corpse, false), "the grave did not take the corpse");
-            ctx.Assert(grave.HasCorpse, "the grave holds no corpse");
+            ctx.Assert(grave.HasCorpse, "the grave holds no corpse: held=" + string.Join(",", grave.GetDirectlyHeldThings().Select(t => t.GetType().Name + (t.Destroyed ? "(destroyed)" : ""))) + " corpseDestroyed=" + corpse.Destroyed + " corpseHolder=" + (corpse.holdingOwner?.Owner?.ToString() ?? "none"));
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace SharedJoys.PickleSteps
             Pawn holder = Colonist(ctx, nickname);
             Building building = PlacedBuilding(ctx, defName);
             Job other = JobMaker.MakeJob(JobDefOf.Wait, building);
-            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, 4, -1, null, false);
+            bool reserved = building.Map.reservationManager.Reserve(holder, other, building, 4, 1, null, false);
             ctx.Assert(reserved, $"{nickname} could not reserve the {defName}");
         }
 
